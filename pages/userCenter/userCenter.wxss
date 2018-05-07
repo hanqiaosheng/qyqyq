@@ -1,0 +1,22 @@
+/* pages/userCenter/userCenter.wxss */
+
+.horizontal-list-item .left {
+  display: flex;
+  align-items: center
+}
+.horizontal-list-item .left image {
+  width: 40rpx;
+  height:  40rpx;
+  margin-right: 24rpx;
+}
+.horizontal-list-item .right button {
+
+}
+.horizontal-list-item .right .arrow {
+  width: 12rpx;
+  height: 20rpx;
+}
+.horizontal-list-item .right  .phone-call {
+  text-decoration: underline;
+  color: #4A90E2
+}

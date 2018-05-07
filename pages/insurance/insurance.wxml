@@ -1,0 +1,8 @@
+<!--pages/insurance/insurance.wxml-->
+<view class='content'>
+  <image src='../image/insurance.jpg'></image>
+  <view class='font-40 t_c'>华安财产保险</view>
+  <view class='t_c col-grey'>为您的骑行保驾护航</view>
+  <view class='t_c col-grey'>（每人0.5元起，将在骑行后扣费）</view>
+  <view class='font-28 t_c'>如出现意外，请联系客服：<text bindtap='phoneCall' class='phone-call'>{{telPhone}}</text></view>
+</view>

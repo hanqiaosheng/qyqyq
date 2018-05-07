@@ -1,0 +1,16 @@
+<!--pages/preCharge/preCharge.wxml-->
+<view class='details'>
+  <image src='../image/qian_img_wallet.png'></image>
+  <text class='font-72'>{{deposite}}元</text>
+  <text class='col-grey'>需预付款（骑完即退）</text>
+   <text class='col-red'>收费标准：{{lastPrice}}</text>
+  <view class='full-text'>
+    <text class='col-green'>平台不收取任何押金，预付款在您在指定区域内还车后立即退回到您的账户</text>
+  </view>
+  </view>
+ <button hover-class="green-btn-hover btn-hover" class="login_btn " size="default" bindtap="charge">充 值</button>
+  <text class='font-48 col-red mgt-40'>指定地点  租车还车</text>
+  <text class='mgt-15 font-36'>锁车后请在手机上付费确认还车</text>
+   <text class='mgt-30 font-36'>12周岁以下禁止骑车</text>
+ <text class='col-grey mgt-50'>华安财产为您快乐骑行护航</text>
+ <text class='col-grey'>（保险费0.5元起，将在骑行完成后扣款）</text>

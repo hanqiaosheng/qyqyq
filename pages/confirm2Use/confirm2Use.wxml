@@ -1,0 +1,27 @@
+<!--pages/confirm2Use/confirm2Use.wxml-->
+<view class='container'>
+  <view class='horizontal-list'>
+      <view class='horizontal-list-item-wrapper '>
+        <view class='horizontal-list-item hr'>
+          <text class='font-28'>车辆编号</text>
+          <text class='col-lightGrey'>{{bikeCode}}</text>
+        </view>
+      </view>
+       <view class='horizontal-list-item-wrapper '>
+        <view class='horizontal-list-item hr'>
+          <text class='font-28'>租赁价格</text>
+          <text class='col-lightGrey'>{{lastPrice}}</text>
+        </view>
+      </view>
+       <!-- <view class='horizontal-list-item-wrapper '>
+        <view class='horizontal-list-item'>
+          <text class='font-28'>需预付款</text>
+          <text class='col-lightGrey'>155442011</text>
+        </view>
+      </view> -->
+  </view>  
+  <view class='btns-group'>
+       <button  class='middle-btn pain' hover-class='pain-btn-hover'bindtap='getBack'>暂不用车</button>
+       <button  class='middle-btn no-pain' hover-class='btn-hover' bindtap='useBike'>直接用车</button>
+  </view>
+</view>

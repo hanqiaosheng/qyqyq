@@ -1,0 +1,38 @@
+
+
+<!--pages/tripLog/tripLog.wxml-->
+<scroll-view 
+  scroll-y='true' 
+  enable-back-to-top='true' 
+  bindscrolltolower="searchScrollLower"   
+ bindscroll="scroll" 
+ scroll-top=''
+ style='height:100%;'
+  class='container card-list scroll-list'>
+    <view wx:if = "{{infoList.length == 0}}" class='t_c col-grey'>没有消息</view>
+    <view class='info-list' wx:else>
+     <view class='full-card' wx:for='{{infoList}}' wx:key='messageId'>
+      <view class='title'>
+       <view class='left'>
+         <icon class='dolt'></icon>
+          <text class='date h5'>{{item.messageTitle}}</text>
+        </view>
+        <view class='right'>
+           <text class='date col-grey'>{{item.messageSendTimeString}}</text>
+           
+        </view>
+      </view>
+      <view class='text-content col-grey '>
+      {{item.messageContent}}
+      </view>
+      
+    </view>
+
+    </view>
+    <view  class='t_c col-grey load-text' wx:if='{{showLoadMore}}'>加载更多</view>
+  
+    
+</scroll-view>
+
+
+

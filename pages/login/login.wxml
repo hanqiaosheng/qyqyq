@@ -1,0 +1,18 @@
+<!--login.wxml-->
+<view class="login_container">
+
+  <view class='layout-input'>
+    <view class="input_ban">
+    <input value="{{phoneNum}}" type="number" bindinput="bindKeyInput" placeholder="请输入手机号码" class="login_input" placeholder-style="color:#ccc;font-family:microsoft yahei;font-weight:normal;font-size:16px" />
+  </view>
+  <view class="sep_line"></view>
+  <view class="input_ban dis_relative">
+     <input value="{{validation}}" type="number" bindinput="bindKeyInput2" placeholder="请输入验证码"  class="login_input"  placeholder-style="color:#ccc;font-family:microsoft yahei;font-weight:normal;font-size:16px" />
+    <button class="validation_btn" disabled='{{!captchaFlag}}' bindtap="getCaptcha" size="mini" 
+    style="border:{{validation_btn_border}};color:{{validation_btn_color}}">{{snsBtnText}}</button>
+  </view>
+  </view>
+
+<button class="login_btn" loading="{{btnLoading}}" hover-class="blue-btn-hover" bindtap="login" disabled='{{!loginFlag}}'  size="default" style="background:{{login_btn_background}}">注册</button>
+
+</view>

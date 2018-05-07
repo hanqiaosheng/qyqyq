@@ -1,0 +1,20 @@
+/* pages/insurance/insurance.wxss */
+image {
+  display: block;
+  margin:0 auto 32rpx;
+  width: 240rpx;
+  height: 240rpx;
+}
+.content{
+  padding: 36rpx 0;
+  background: #fff;
+}
+.font-40{
+  margin-bottom: 16rpx;
+}
+.phone-call{
+  color: #4A90E2 
+}
+.font-28{
+  margin-top: 20rpx;
+}

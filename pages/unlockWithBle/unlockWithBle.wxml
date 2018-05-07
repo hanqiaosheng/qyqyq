@@ -1,0 +1,10 @@
+<!--pages/unlockWithBle/unlockWithBle.wxml-->
+<view class='container'>
+  <image src='../image/home_img_bike.png'></image>
+  <view class='t_c friendlyText'>{{friendlyText}}</view>
+  <progress percent='{{progress}}' activeColor='#72C54D ' stroke-width='8' backgroundColor="#fff"></progress>
+  <view class='t_c'>{{progress}}%</view>
+  <view class='bottom-text-wrapper'>
+    <image src='../image/home_img_txt.png'></image>
+  </view>
+  </view>

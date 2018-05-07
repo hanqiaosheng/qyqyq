@@ -1,0 +1,43 @@
+<!--pages/confirm2Trip/confirm2Trip.wxml-->
+<view class='container'>
+	<view class="card" >
+    <view class='layout-through-line'>
+      <view class="through-line"></view>
+      <text class="bike-num">单车编号 : {{bikeCode}}</text>
+      <view class="through-line"></view>
+    </view>
+    <view class='form-inline'>
+       <view class='layout'>
+          <icon class='dolt'></icon>
+          <text>{{startTime}}-{{endTime}}</text>
+       </view>
+       <view class='layout'>
+          <image src='../image/home_icon_time.png' class='icon'></image>
+          <label class='col-grey'>骑行时间：</label>
+          <text>{{rentLongtime}}分钟</text>
+       </view>
+        <view class='layout'>
+          <image src='../image/home_icon_kuan_o.png' class='icon'></image>
+          <label class='col-grey'>费用结算：</label>
+          <text>{{rentPrice}} (保险费{{insurancePrice}}元)</text> 
+       </view>
+        <view class='layout'>
+          <image src='../image/home_icon_adr.png' class='icon'></image>
+          <label class='col-grey'>起始地点：</label>
+          <text>{{startPlace}}</text>
+       </view>
+    </view>
+    <view wx:if='{{checkState == 1}}'>
+       <view class='t_c'  >退还预交费 <text class='col-red'>(自动退还)</text></view>
+       <view class='font-72 t_c'>{{refund}}元</view>
+    </view>
+   <view wx:else>
+      <view class='t_c'  >您需要补交</view>
+      <view class='font-72 t_c'>{{payMoney}}元</view>
+   </view>
+     
+  </view>
+  <view class='btn-group'>
+    <button  class='full-btn no-pain' hover-class='btn-hover' bindtap='cinfirmTrip'>确认行程</button>
+  </view>
+</view>

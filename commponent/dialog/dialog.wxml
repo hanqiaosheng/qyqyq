@@ -1,0 +1,18 @@
+<!--commponent/dialog/dialog.wxml-->
+<view class='dialog' wx:if="{{dialogShow}}">
+  <view class='mask'></view>
+  <view class='layout-dialog'>
+    <view class=' font-36' wx:if="{{showTitle}}">
+       <image class='title-image' src='../../pages/image/qr_icon_tishi.png' ></image>
+       <view class='content t_c'>{{contents}}</view>
+    </view>
+    <view class='font-28' wx:else >{{contents}}</view>
+    <view class='btns-group' wx:if="{{showConfirm}}">
+      <button  class='btn pain' hover-class='pain-btn-hover' bindtap='cancel'>{{cancelText}}</button>
+      <button  class='btn no-pain' hover-class='btn-hover' bindtap='confirm'>{{confirmText}}</button>
+    </view>
+    <view class='btn-group' wx:else>
+       <button  class='btn no-pain' hover-class='btn-hover' bindtap='cancel'>我知道了</button>
+    </view>
+  </view>
+</view>

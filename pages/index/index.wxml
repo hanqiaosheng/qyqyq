@@ -1,0 +1,50 @@
+ <!--index.wxml-->
+
+
+
+  <map id="map" longitude="{{point.lon}}" latitude="{{point.lat}}" scale="{{scale}}"
+   controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" 
+     bindregionchange="regionchange" show-location
+     style="width:{{mapWidth}}; height: {{mapHeight}};">
+
+     </map>
+  <view class="card" >
+    <view class='content'>
+      <view class='layout-through-line'>
+      <view class="through-line"></view>
+      <text class="bike-num">单车编号 : {{bicycleCode}}</text>
+      <view class="through-line"></view>
+    </view>
+    <view class='form-inline'>
+          <view class='layout'>
+          <image src='../image/home_icon_time.png' class='icon'></image>
+          <label class='col-grey'>骑行时间：</label>
+          <text>{{currentRideTime}}</text>
+       </view>
+        <view class='layout'>
+          <image src='../image/home_icon_kuan_o.png' class='icon'></image>
+          <label class='col-grey'>预计费用：</label>
+          <text> {{currentPay}} 元</text>
+       </view>
+        <view class='layout'>
+          <image src='../image/home_icon_adr.png' class='icon'></image>
+          <label class='col-grey'>起始地点：</label>
+          <text>{{startPlace}}</text>
+       </view>
+    </view>
+    <view class='btns-group'>
+       <button  class='middle-btn pain' hover-class='pain-btn-hover' bindtap='openLock'>再次开锁</button>
+       <button  class='middle-btn no-pain' hover-class='btn-hover' bindtap='overTrip'>结束行程</button>
+    </view>
+    </view>
+  
+  </view>
+  
+ 
+
+  <!-- <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view> -->
+
+

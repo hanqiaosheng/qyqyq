@@ -1,0 +1,49 @@
+.card {
+  padding: 24rpx 32rpx 20rpx;
+  background: #fff;
+  border-bottom:1px solid #ddd;
+}
+.layout-through-line{
+  display: flex;
+  align-items: center;
+}
+.layout-through-line .through-line {
+   flex-grow:1;
+   height: 1px;
+   background: #ddd;
+}
+.layout-through-line text {
+  padding: 0 20rpx;
+}
+.form-inline {
+  border-bottom:1px solid #ddd; 
+  padding: 18rpx 0 24rpx;
+}
+.form-inline .layout{
+  display: flex;
+  align-items: center;
+  margin-top: 12rpx
+}
+.form-inline .layout .dolt {
+  margin-right: 24rpx;
+  margin-left: 8rpx;
+}
+.form-inline .layout .icon{
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 16rpx;
+}
+.form-inline .layout label{
+  white-space:noWrap;
+}
+.form-inline .layout  text {
+   white-space:noWrap;
+   overflow:hidden;
+   text-overflow:ellipsis;
+}
+.card .t_c{
+  margin-top: 25rpx;
+}
+.card .font-72 {
+  margin-top: 12rpx
+}

@@ -1,0 +1,73 @@
+/**index.wxss**/
+/*.container{
+  width:100%;
+  height: 100%;
+  display:flex;
+}*/
+.map{
+  width:100%;
+  height:100rpx;
+}
+.content{
+  width:100%;
+
+}
+.card {
+  display: flex;
+  align-items: center;
+  height: 30%;
+  padding: 0 32rpx ;
+  background: #fff;
+  border-bottom:1px solid #ddd;
+  box-sizing: border-box;
+}
+.layout-through-line{
+
+  display: flex;
+  align-items: center;
+}
+.layout-through-line .through-line {
+   flex-grow:1;
+   height: 1px;
+   background: #ddd;
+}
+.layout-through-line text {
+  padding: 0 22rpx;
+}
+.form-inline {
+
+  padding:0 18rpx 0 24rpx;
+}
+.form-inline .layout{
+  display: flex;
+  align-items: center;
+  margin-top: 12rpx
+}
+.form-inline .layout .dolt {
+  margin-right: 24rpx;
+  margin-left: 8rpx;
+}
+.form-inline .layout .icon{
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 16rpx;
+}
+.form-inline .layout label{
+  white-space:noWrap;
+}
+.form-inline .layout  text {
+   white-space:noWrap;
+   overflow:hidden;
+   text-overflow:ellipsis;
+}
+.btns-group{
+  padding:  32rpx 0 0;
+}
+.middle-btn{
+
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.login_input {
+  flex-grow:1;
+}

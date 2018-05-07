@@ -1,0 +1,41 @@
+<!--pages/tripLog/tripLog.wxml-->
+<scroll-view 
+  scroll-y='true' 
+  enable-back-to-top='true' 
+  bindscrolltolower="searchScrollLower"   
+ bindscroll="scroll" 
+ scroll-top=''
+ style='height:100%;'
+  class='container card-list scroll-list'>
+    <view wx:if = "{{infoList.length == 0}}" class='t_c col-grey'>没有行程</view>
+    <view class='info-list' wx:else>
+      <view  wx:for='{{infoList}}' wx:key='rentInfoId' class='full-card' >
+       <view class='left'>
+        <view class='left-top flex-align-center'>
+          <icon class='dolt'></icon>
+          <text class='date h5'>{{item.rentStarttimeString}}</text>
+         
+        </view>
+        <view class='left-bottom '>
+          <text class='col-grey'>自行车编号：{{item.bBikeCode}}</text>
+        </view>
+      </view>
+      <view class='right'>
+        <view class='right-top flex-align-center'>
+          <image src='../image/home_icon_time.png'></image>
+          <text>{{item.rentLongtime}}分钟</text>
+        </view>
+        <view class='right-bottom flex-align-center'>
+          <image src='../image/home_icon_kuan_o.png'></image>
+          <text>{{item.rentPrice}}元</text>
+        </view>
+      </view>
+    </view>
+
+    </view>
+    <view  class='t_c col-grey load-text' wx:if='{{showLoadMore}}'>加载更多</view>
+  
+    
+</scroll-view>
+
+

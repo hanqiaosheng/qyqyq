@@ -1,0 +1,242 @@
+/**app.wxss**/
+page {
+
+  width:100%;
+  height:100%;
+  font-size:28rpx;
+  line-height: 1.5;
+  color:#333;
+  background: #F5F5F5;
+  
+  font-family:"pingfang sc",STHeiti,Microsoft YaHei,Helvetica,Arial,sans-serif;
+}
+.page {
+  font-size:28rpx;
+  color:#333;
+  background: #F5F5F5;
+  font-family:"pingfang sc",STHeiti,Microsoft YaHei,Helvetica,Arial,sans-serif;
+}
+.t_c{
+  text-align: center;
+}
+.h5{
+  font-size:32rpx;
+}
+.col-green{
+  color:#419C19;
+}
+.col-red{
+  color:red;
+}
+.col-black{
+   color:#333;
+}
+.col-grey{
+  color:#888;
+}
+.col-lightGrey{
+  color:#999
+}
+.font-21{
+  font-size:25rpx;
+}
+.font-24{
+  font-size:28rpx;
+}
+.font-28{
+  font-size:32rpx;
+}
+.font-30{
+  font-size:34rpx
+}
+.font-36{
+  font-size:36rpx
+}
+.font-40{
+  font-size:40rpx;
+}
+.font-48{
+  font-size:52rpx;
+}
+.font-72{
+  font-size:72rpx;
+}
+.font-80{
+  font-size:84rpx;
+}
+.ml-14{
+  margin-left:14rpx;
+}
+.ml-28{
+  margin-left:28rpx;
+}
+.ml-40{
+  margin-left:40rpx;
+}
+.mt-16{
+  margin-top: 16rpx;
+}
+.blod{
+  font-weight: bold;
+}
+.pain-btn-hover{
+  border:none !important;
+  background: #72C54D !important;
+  color:#fff !important;
+}
+.btn-hover {
+  opacity: .8;
+}
+.btn-hover,.pain-btn-hover{
+  transform: scale(0.96)
+}
+.middle-btn{
+  width: 324rpx;
+}
+.full-btn {
+  width: 100%;
+}
+.middle-btn,.full-btn{
+  height:96rpx;
+  line-height:96rpx;
+}
+.pain {
+  color: #72C54D ;
+  border:  1rpx solid  #72C54D ;
+  background-color:#fff ;
+}
+.no-pain{
+  background: #72C54D;
+  color: #fff;
+  border: none;
+}
+.btns-group{
+  display: flex;
+  justify-content: space-between;
+  padding: 32rpx ;
+}
+.btn-group {
+  padding: 32rpx ;
+}
+button[type="default"]{
+color: #72C54D;
+border-color:  #72C54D;
+background-color:#fff;
+
+}
+button{
+  margin: 0;
+  font-family:inherit;
+  font-size:32rpx;
+}
+button[type="mini"] {
+  color: #72C54D;
+  border: 1rpx solid #72C54D;
+  height: 52rpx;
+  padding: 0 32rpx;
+  line-height: 52rpx;
+  font-size: 28rpx;
+}
+.pain-btn {
+  color: #72C54D;
+  border: 1rpx solid #72C54D;
+
+  padding: 0 32rpx;
+  line-height: 52rpx;
+  font-size: 28rpx;
+}
+
+.fl{
+  float: left;
+}
+.login_btn{
+  width:690rpx;
+  margin:40rpx auto 0;
+  background: #72C54D;
+  border:none;
+  color:#fff;
+  font-size:32rpx;
+  font-family:inherit;
+  height:96rpx;
+  line-height:96rpx;
+
+
+}
+.login_text{
+  text-align: center;
+  margin-top:65rpx;
+  font-size:25rpx;
+  color:#666;
+  font-family: microsoft yahei;
+}
+.login_file{
+  text-decoration: underline;
+  color:#007EF7;
+}
+.protocal-text{
+  padding:30rpx;
+  display:block;
+  line-height:1.5;
+
+}
+
+.horizontal-list {
+  border-bottom: 1rpx solid #ddd;
+  font-size: 32rpx;
+  background: #fff;
+}
+.horizontal-list .horizontal-list-item-wrapper {
+  padding-left: 32rpx;
+}
+ .hr {
+  border-bottom :1rpx solid #e5e5e5;
+}
+ .horizontal-list-item-wrapper .horizontal-list-item{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding-right: 32rpx;
+    min-height: 100rpx;
+ 
+}
+
+/*
+* full_card  全屏卡片
+*/
+
+.full-card {
+  opacity: 0.98;
+    background: #FFFFFF;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.15);
+    border-radius: 6px;
+
+}
+
+.dolt {
+  display: inline-block;
+  width: 12rpx;
+  height:12rpx;
+  background: #72C54D;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+
+.scroll-list {
+  padding:32rpx 32rpx 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.scroll-list .full-card,.scroll-list .load-text {
+  margin-bottom: 24rpx;
+ 
+}

@@ -1,0 +1,38 @@
+/* pages/unlockWithBle/unlockWithBle.wxss */
+.container {
+  height: 100%;
+  background:#4c4c4c;
+  color: #fff;
+
+   font-size:35rpx;
+}
+image {
+  width: 312rpx;
+  height:192rpx;
+   display: block;
+   margin: auto;
+   padding-top: 140rpx;
+}
+.t_c{
+ 
+  line-height: 3;
+}
+.friendlyText{
+ margin-top: 25rpx;
+}
+progress{
+  width: 80%;
+  margin: auto;
+  
+}
+.bottom-text-wrapper{
+  position: absolute;
+  width: 100%;
+  bottom:140rpx;
+ 
+  left: 0;
+}
+.bottom-text-wrapper image{
+  width: 576rpx;
+  
+}

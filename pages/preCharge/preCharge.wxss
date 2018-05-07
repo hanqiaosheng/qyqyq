@@ -1,0 +1,37 @@
+/* pages/preCharge/preCharge.wxss */
+
+text,image{
+  display: block;
+}
+image{
+  width: 152rpx;
+  height: 136rpx;
+  margin: 0 auto 12rpx;
+}
+text{
+  text-align: center;
+}
+.full-text{
+ 
+  margin: 20rpx 32rpx 0;
+}
+.full-text text{
+ text-align: left;
+  
+}
+.details{
+  padding: 60rpx 0 32rpx;
+  background: #fff;
+}
+.mgt-15{
+  margin-top: 15rpx;
+}
+.mgt-30{
+  margin-top: 30rpx;
+}
+.mgt-40{
+  margin-top: 50rpx;
+}
+.mgt-50{
+  margin-top: 50rpx;
+}
