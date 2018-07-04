@@ -48,24 +48,17 @@ Page({
     let personcard = this.data.idCard,
         realname = this.data.name;
     common.sendRequest('/user/certification.action', { personcard, realname},res => {
-      if (res.data.code == 1) {
-        common.sendRequest2yb('/user/user/realName', { idCard: personcard, name: realname},res => {
-          if(res.data.success) {
+      console.log("000",res.data)
+      if (res.data.code == 1) {     
             wx.redirectTo({
               url: '../index/index',
-            })
-          }else {
-            wx.showToast({
-              title: '' + res.data.msg
-            })
-          }
+            }) 
+      }else{
+        wx.showToast({
+          title: '' + res.data.message
         })
-     
-      
       }
-      wx.showToast({
-        title: '' + res.data.message
-      })
+
     });
   },
   /**

@@ -1,13 +1,29 @@
  <!--index.wxml-->
+  <map id="map" 
+  longitude="{{point.lon}}" 
+  latitude="{{point.lat}}" 
+  scale="{{scale}}" 
+  controls="{{controls}}" 
+  bindcontroltap="controltap" 
+  markers="{{markers}}" 
+  scale="12" 
+  bindregionchange="regionchange" 
+  bindmarkertap='markertap' 
+  show-location 
+  style="width:{{mapWidth}}; height: {{mapHeight}};"
+  polyline="{{polyline}}"></map>
 
+  <view class='marsk' style="{{!isShow ? ' display: block' : 'display: none'}}">
+  <image src='../image/share.jpg' class='shareStyrle'></image>
+  <view class='test-style'>
+  <text>定点还车</text>
+  <text>定点还车</text>
+  <text>定点还车</text>
+  <text>定点还车</text>
+  </view>
+<view class='bottcl' bindtap='displayfun'><view class='bottclz'>我已知晓</view></view>
+  </view>
 
-
-  <map id="map" longitude="{{point.lon}}" latitude="{{point.lat}}" scale="{{scale}}"
-   controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" 
-     bindregionchange="regionchange" show-location
-     style="width:{{mapWidth}}; height: {{mapHeight}};">
-
-     </map>
   <view class="card" >
     <view class='content'>
       <view class='layout-through-line'>

@@ -71,3 +71,37 @@
 .login_input {
   flex-grow:1;
 }
+.marsk{
+  width: 560rpx;
+  height: 820rpx;
+  background: red;
+  position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.shareStyrle{
+    width: 100%;
+  height: 50%;
+}
+.test-style{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx
+}
+.bottcl{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.bottclz{
+    width: 360rpx;
+  height: 80rpx;
+  background: #72C54D;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 40rpx
+}

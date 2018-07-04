@@ -7,28 +7,21 @@
   justify-content: space-between;
   box-sizing: border-box;
 }
-.layout-input {
-  border-bottom:1rpx solid #ddd;
-}
 .input_ban{
   /* width:720rpx; */
  border-bottom: 1px rolid ; 
-  margin:0 30rpx;
+  margin:0 40rpx;
   color: #000;
   font-weight: bold;
 }
-.sep_line{
-  height:1rpx;
-  /* width:720rpx; */
-  background-color: #eee;
-  margin:0 30rpx;
 
-}
 .login_input{
   height:100rpx;
   line-height: 100rpx;
   font-size:40rpx;
   font-family:Arial!important;
+  border-bottom:1px #000 solid;
+
 }
 .validation_btn{
   /* position: absolute;*/
