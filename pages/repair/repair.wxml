@@ -1,0 +1,60 @@
+<!--pages/repair/repair.wxml-->
+<view style='padding:0 30rpx'>
+<view class='title'>车辆故障后上报</view>
+<form bindsubmit="formSubmit">
+<view class="repair-box">
+<input class="bikeRepair" value='{{inputtext}}' bindinput='inputfun'  placeholder='扫描二维码或手动输入7到8位车辆编号' placeholder-style='color:#888'></input>
+<image src='../image/saoyisao-icon.png' style='width:70rpx;height:60rpx;' bindtap='imagefun'></image>
+</view>
+<view class='title'>请选择车辆损伤部位</view>
+<view  style="height:360rpx">
+<checkbox-group class="repair-box" bindchange="checkboxChange">
+<view class='repair-left'>
+<view class="repair-check"><label><checkbox value='1'>刹车</checkbox></label></view>
+<view class="repair-check"><label><checkbox value='2'>车牌</checkbox></label></view>
+<view class="repair-check"><label><checkbox value='3'>轮胎</checkbox></label></view>
+<view class="repair-check"><label><checkbox value='4'>踏板</checkbox></label></view>
+</view>
+<image src='../image/bike-image.png' style='width:432rpx;height:301rpx'></image>
+<view class='repair-right'>
+<view class="repair-check"><label><checkbox value='5'>座垫</checkbox></label></view>
+<view class="repair-check"><label><checkbox value='6'>车锁</checkbox></label></view>
+<view class="repair-check"><label><checkbox value='7'>其他</checkbox></label></view>
+<view class="repair-check"><label><checkbox value='8'>链条</checkbox></label></view>
+</view>
+</checkbox-group>
+
+</view>
+
+        <view class="weui-cells" style='background:#F5F5F5'>
+          <view class="weui-cell" style='padding:10px 0'>
+            <view class="weui-cell__bd">
+              <view class="weui-uploader">
+                <view class="weui-uploader__hd">
+                  <view class="weui-uploader__title" style='font-size:14px'>拍张车辆照片，帮助我们更快的解决问题</view>
+                  <view class="weui-uploader__info">{{pics.length}}/1</view>
+                </view>
+                <view class="weui-uploader__bd">
+                  <view class="weui-uploader__files">
+                    <block wx:for="{{pics}}" wx:key='index' wx:for-item="image">
+                      <view class="weui-uploader__file">
+                        <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                      </view>
+                    </block>
+                  </view>
+                  <view class="weui-uploader__input-bo" style='background:url("{{imagexiangji}}") center/60% no-repeat;'>
+                    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      <view>
+        <textarea placeholder="请输入吐槽意见，您的意见是我们前进的动力..." bindinput='inuputFun4' class="search-textarea" maxlength="100" placeholder-style="font-size:13px;color:#bebebe"><text class='length-style'>{{length}}/100</text></textarea>
+      </view>
+      <view class='last-box'>如有疑问可拨打客服电话：0571-56231981</view>
+  <button class="login_btn" loading="{{btnLoading}}" hover-class="btn-hover" formType="submit" disabled='{{isBtnDisabled}}'  size="default" style="border-radius:48rpx;color:#fff;">提交</button>
+  <view style='height:30px'></view>
+</form>
+</view>

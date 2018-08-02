@@ -15,7 +15,7 @@ export const cmd = {
     const pwdArr = new Uint8Array([0x05, 0x0e, 0x01, 0x01, ...token, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00])
     return lockUtils.encrypt(pwdArr, key)
   },
-  decryptCmd (src, key = initKey) {
+  decryptCmd(src, key = initKey) {
     return lockUtils.decrypt(src,key);
   }
 }

@@ -1,0 +1,41 @@
+<!--pages/voucherye/voucherye.wxml-->
+
+<view class='navber'>
+  <view wx:for="{{navber}}" wx:key="{{unique}}" data-idx="{{index}}" bindtap='navbarTap' class="itemtest {{currentTop==index ? 'active' : ''}}">{{item}}</view>
+</view>
+<view style='padding:0 30rpx;margin-top:40rpx'>
+
+<view hidden='{{currentTop !==0}}' wx:if="{{!userCoupon}}" class='noList'>暂无优惠券</view>
+  <view hidden='{{currentTop !==0}}' class='barstyle' style='margin-bottom:30rpx' wx:if="{{userCoupon}}" wx:for="{{userCoupon}}" wx:key="{{index}}">
+    <view class='voucher-image-red' style='background:url("{{item.ustate==1? imagered : noimagered}}") center/cover no-repeat;'>
+
+      <view class='coupon-style'>
+        <text class='title-style' style="{{item.ustate==1 ? 'color: #000' : 'color: #A1A1A1'}}">优惠券</text>
+        <text class='time-style'>有效期为：{{item.CreateTime}}-{{item.codeEndTime}}</text>
+      </view>
+      <view class='discount-style'>
+        <text style='font-size: 58rpx;font-weight: bold;color:#fff'>{{item.discount*10}}<text style='font-size: 26rpx;'>折</text></text>
+      </view>
+
+    </view>
+  </view>
+
+<view hidden='{{currentTop !==1}}' wx:if="{{!rideCoupon}}" class='noList'>暂无骑行券</view>
+  <view hidden='{{currentTop !==1}}' class='barstyle' style='margin-bottom:30rpx' wx:for="{{rideCoupon}}" wx:key="{{index}}">
+  
+    <view class='voucher-image-red' style='background:url("{{item.state==1 ? imageyoll : noimageyoll}}") center/100% no-repeat;'>
+
+      <view class='coupon-style'>
+        <text class='title-style' style="{{item.state==1 ? 'color: #000' : 'color: #A1A1A1'}}">骑行券</text>
+        <text class='time-style'>有效期为：{{item.ucreateTime}}-{{item.qiendTime}}</text>
+      </view>
+      <view class='discount-style'>
+        <text style='font-size: 40rpx;font-weight: bold;color:#fff'>免费</text>
+      </view>
+
+    </view>
+
+
+
+  </view>
+</view>

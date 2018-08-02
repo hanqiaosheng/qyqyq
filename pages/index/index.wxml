@@ -6,46 +6,55 @@
   controls="{{controls}}" 
   bindcontroltap="controltap" 
   markers="{{markers}}" 
-  scale="12" 
   bindregionchange="regionchange" 
   bindmarkertap='markertap' 
   show-location 
   style="width:{{mapWidth}}; height: {{mapHeight}};"
   polyline="{{polyline}}"></map>
 
-  <view class='marsk' style="{{!isShow ? ' display: block' : 'display: none'}}">
-  <image src='../image/share.jpg' class='shareStyrle'></image>
-  <view class='test-style'>
-  <text>定点还车</text>
-  <text>定点还车</text>
-  <text>定点还车</text>
-  <text>定点还车</text>
-  </view>
-<view class='bottcl' bindtap='displayfun'><view class='bottclz'>我已知晓</view></view>
-  </view>
+<cover-view class='top-mark-ts'>
+<cover-image src='../image/index-jinggao-icon.png' style='width: 70rpx;height: 70rpx;'></cover-image>
+<cover-view style='margin-right:120rpx'>还车时，请在指定还车点还车。</cover-view>
+</cover-view>
 
-  <view class="card" >
+  <cover-view  class='marsk' style="{{!isShow ? ' display: block' : 'display: none'}}">
+  <cover-image src='../image/index-mark-image.png' class='shareStyrle'></cover-image>
+  <cover-view class='test-style'>
+  <cover-view class='title-test-style'>指定区域 租还车辆</cover-view>
+  <cover-view style='color: #98999D;margin-bottom:20rpx'>车辆请停放在指定区域内</cover-view>
+  <cover-view style='color: #98999D;margin-bottom:20rpx'>锁车后请在手机上付费还车</cover-view>
+  <cover-view style='color: #98999D;margin-bottom:20rpx'>12周岁以下禁止骑车</cover-view>
+  </cover-view>
+<cover-view class='bottcl' bindtap='displayfun'><cover-view class='bottclz'>我已知晓</cover-view></cover-view>
+  </cover-view>
+
+  <view class="card" style="display:{{ismapno ? 'block' : 'none'}}">
     <view class='content'>
       <view class='layout-through-line'>
-      <view class="through-line"></view>
+      <!-- <view class="through-line"></view>
       <text class="bike-num">单车编号 : {{bicycleCode}}</text>
-      <view class="through-line"></view>
+      <view class="through-line"></view> -->
     </view>
     <view class='form-inline'>
+              <view class='layout'>
+          <image src='../image/qixing-bike.png' class='icon'></image>
+          <label>车辆编号：</label>
+          <text class='col-grey'>{{bicycleCode}}</text>
+       </view>
           <view class='layout'>
           <image src='../image/home_icon_time.png' class='icon'></image>
-          <label class='col-grey'>骑行时间：</label>
-          <text>{{currentRideTime}}</text>
+          <label>骑行时间：</label>
+          <text class='col-grey'>{{currentRideTime}}</text>
        </view>
         <view class='layout'>
           <image src='../image/home_icon_kuan_o.png' class='icon'></image>
-          <label class='col-grey'>预计费用：</label>
-          <text> {{currentPay}} 元</text>
+          <label>预计费用：</label>
+          <text class='col-grey'> {{currentPay}} 元</text>
        </view>
         <view class='layout'>
           <image src='../image/home_icon_adr.png' class='icon'></image>
-          <label class='col-grey'>起始地点：</label>
-          <text>{{startPlace}}</text>
+          <label>起始地点：</label>
+          <text class='col-grey'>{{startPlace}}</text>
        </view>
     </view>
     <view class='btns-group'>

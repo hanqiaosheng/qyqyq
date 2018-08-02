@@ -3,7 +3,17 @@
   <image src='../image/qian_img_wallet.png'></image>
   <text class='font-72'>{{deposite}}元</text>
   <text class='col-grey'>需预付款（骑完即退）</text>
-   <text class='col-red'>收费标准：{{lastPrice}}</text>
+
+  <view class='price-style'>
+   <text class='col-red'>收费标准：</text>
+   <view class='price-style-right'>
+   <view wx:if="{{priceList && rentPriceOption==1}}" wx:for="{{priceList}}"><text wx:if="{{item.fromTime==0}}"  class='col-red'>第0-1小时，价格{{item.rentPrice}}元</text><text wx:if="{{item.toTime==2}}"  class='col-red'>第1-2小时，价格{{item.rentPrice}}元</text></view>
+      <view wx:if="{{priceList && rentPriceOption==0}}" wx:for="{{priceList}}"><text wx:if="{{item.fromTime==0}}"  class='col-red'>第0-1半小时，价格{{item.rentPrice}}元</text><text wx:if="{{item.toTime==2}}"  class='col-red'>第1-2半小时，价格{{item.rentPrice}}元</text></view>
+      <text class='col-red'>{{lastPrice}}</text>
+<text class='col-red'>24小时封顶{{rentPriceMax}}元</text>
+   </view>
+  </view>
+  
   <view class='full-text'>
     <text class='col-green'>平台不收取任何押金，预付款在您在指定区域内还车后立即退回到您的账户</text>
   </view>

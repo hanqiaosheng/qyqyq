@@ -26,7 +26,7 @@ Page({
       })
       console.log(this.data.showLoadMore)
       sendRequest('/user/userRentInfo.action', { pageIndex: this.data.pageIndex}, res => {
-        if(res.data.code == 1) {
+        if(res.data.code == 1) {      
           
           this.setData({
             infoList: this.data.infoList.concat(res.data.data.rentInfoList),

@@ -9,8 +9,12 @@ Page({
   data: {
 
     bikeCode: '',
-    lastPrice: ''
-
+    lastPrice: '',
+    bikeDeposit:'',
+    modelsName:'',
+    isVip:'',
+    accountAvailableBalance:'',
+    bikeAddress:''
   },
  /**
    * 直接用车（判断蓝牙是否开启）
@@ -22,25 +26,37 @@ Page({
   },
   useBike(){
     let that = this;
-    wx.openBluetoothAdapter({
-      success: function (res) {
-        console.log(JSON.stringify(res))
-        wx.navigateTo({
-          url: '../unlockWithBle/unlockWithBle?delta=2',
-        })
-      },
-      fail(res) {
-        wx.showModal({
-          title: '',
-          content: '请开启系统蓝牙',
-        })
-      },
-      complete(res) {
+    let bikeState=wx.getStorageSync("bikeState")
+    if (bikeState == 1){
+      wx.navigateTo({
+        url: `../unlockWithBle/unlockWithBle?delta=2&bikeState=${bikeState}`,
+      })
+    }else{
+      wx.openBluetoothAdapter({
+        success: function (res) {
+          console.log(JSON.stringify(res))
+          wx.navigateTo({
+            url: `../unlockWithBle/unlockWithBle?delta=2&bikeState=${bikeState}`,
+          })
+        },
+        fail(res) {
+          wx.showModal({
+            title: '',
+            content: '请开启系统蓝牙',
+          })
+        },
+        complete(res) {
 
-      }
+        }
+      })
+    }
+
+  },
+  goRule(){
+    wx.navigateTo({
+      url: '../rule/rule',
     })
   },
-
 
 
   /**
@@ -49,10 +65,28 @@ Page({
   onLoad: function (options) {
     const rentOption = app.globalData.rentOption;
     const bikeCode = rentOption.bikeCode;
+    const bikeDeposit = rentOption.bikeDeposit;
+    const modelsName = rentOption.modelsName;
+    const isVip = rentOption.isVip;
+    const accountAvailableBalance = rentOption.accountAvailableBalance;
+    const bikeAddress = rentOption.bikeAddress;
+
+    const priceList = rentOption.priceList;
+    const rentPriceMax = rentOption.rentPriceMax;
+
     const lastPrice = rentOption.rentPriceOption == 1 ? `${rentOption.lastPrice}元/小时` : `${rentOption.lastPrice}元/半小时` 
+
     this.setData({
       bikeCode,
-      lastPrice
+      lastPrice,
+      bikeDeposit,
+      modelsName,
+      isVip,
+      accountAvailableBalance,
+      bikeAddress,
+      priceList,
+      rentPriceMax,
+      rentPriceOption: rentOption.rentPriceOption,
     })
   },
 

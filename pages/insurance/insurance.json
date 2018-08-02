@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "保险申请"
+  "navigationBarTitleText": "保险申请",
+  "navigationBarBackgroundColor": "#50CC99",
+  "navigationBarTextStyle": "white"
 }

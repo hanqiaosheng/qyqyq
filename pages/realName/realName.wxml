@@ -6,7 +6,7 @@
     <input value="{{phoneNum}}" type="text" bindinput="bindKeyInput" placeholder="请输入您的真实姓名" class="login_input" placeholder-style="color:#ccc;font-family:microsoft yahei;font-weight:normal;font-size:16px" />
   </view>
   <view class="input_ban dis_relative">
-     <input value="{{validation}}" type="idcard" bindinput="bindKeyInput2" placeholder="请输入您的身份证号码"  class="login_input"  placeholder-style="color:#ccc;font-family:microsoft yahei;font-weight:normal;font-size:16px" />
+     <input value="{{validation}}" type="idcard" bindinput="bindKeyInput2" placeholder="请输入您的身份证号码" maxlength='18' class="login_input"  placeholder-style="color:#ccc;font-family:microsoft yahei;font-weight:normal;font-size:16px" />
 
   </view>
   </view>

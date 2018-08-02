@@ -1,0 +1,4 @@
+<!-- pages/handbook/handbook.wxml-->
+<view>
+<web-view src="https://wechat.letulife.com/html/user-guide.html"></web-view>
+</view>

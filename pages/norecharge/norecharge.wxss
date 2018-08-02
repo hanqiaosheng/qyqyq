@@ -1,0 +1,15 @@
+/* pages/norecharge/norecharge.wxss */
+.horizontal-list-item-wrapper{
+  margin-top: 50rpx;
+  margin-bottom: 20rpx
+}
+.left-money{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.arrow {
+  width: 20rpx;
+  height: 40rpx;
+}

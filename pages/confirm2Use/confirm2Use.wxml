@@ -1,27 +1,96 @@
 <!--pages/confirm2Use/confirm2Use.wxml-->
 <view class='container'>
   <view class='horizontal-list'>
+
+    <view class='view-top'>
+      <view wx:if="{{isVip}}" class='horizontal-list-item-wrapper '>
+        <view class='view-top-item'>
+          <text class='font-28' style='margin-bottom:30rpx'>用户身份</text>
+          <text class='col-lightGrey' style='font-size:26rpx'>会员用户</text>
+        </view>
+      </view>
+
+
+      <view wx:if="{{isVip}}" class='horizontal-list-item-wrapper '>
+        <view class='view-top-item'>
+          <text class='font-28' style='margin-bottom:30rpx'>账户余额</text>
+          <text class='col-lightGrey' style='font-size:26rpx'>{{accountAvailableBalance}}元</text>
+        </view>
+      </view>
+
+      <view wx:if="{{!isVip}}" class='horizontal-list-item-wrapper '>
+        <view class='view-top-item'>
+          <text class='font-28' style='margin-bottom:30rpx'>预付款</text>
+          <text class='col-lightGrey' style='font-size:26rpx'>{{bikeDeposit}}元</text>
+        </view>
+      </view>
+
       <view class='horizontal-list-item-wrapper '>
-        <view class='horizontal-list-item hr'>
-          <text class='font-28'>车辆编号</text>
-          <text class='col-lightGrey'>{{bikeCode}}</text>
+        <view class='view-top-item'>
+          <text class='font-28' style='margin-bottom:30rpx'>车辆类型</text>
+          <text class='col-lightGrey' style='font-size:26rpx'>{{modelsName}}</text>
         </view>
       </view>
-       <view class='horizontal-list-item-wrapper '>
-        <view class='horizontal-list-item hr'>
-          <text class='font-28'>租赁价格</text>
-          <text class='col-lightGrey'>{{lastPrice}}</text>
+
+      <view class='horizontal-list-item-wrapper '>
+        <view class='view-top-item'>
+          <text class='font-28' style='margin-bottom:30rpx'>车辆编号</text>
+          <text class='col-lightGrey' style='font-size:26rpx'>{{bikeCode}}</text>
         </view>
       </view>
-       <!-- <view class='horizontal-list-item-wrapper '>
-        <view class='horizontal-list-item'>
-          <text class='font-28'>需预付款</text>
-          <text class='col-lightGrey'>155442011</text>
+
+    </view>
+    <view style='height:30rpx;background:#EDF0F0'></view>
+    <view class='horizontal-list-item-wrapper '>
+      <view class='horizontal-list-item hr'>
+        <text class='font-28'>所在景区</text>
+        <text class='col-lightGrey' style='white-space:noWrap;overflow:hidden;text-overflow:ellipsis;width:400rpx;font-size:26rpx'>{{bikeAddress}}</text>
+      </view>
+    </view>
+    <view style='height:30rpx;background:#EDF0F0'></view>
+
+    <view class='horizontal-list-item-wrapper '>
+      <view class='horizontal-list-item' style='padding-top:30rpx;padding-bottom:30rpx;align-items:flex-start'>
+        <text class='font-28'>收费标准</text>
+
+        <view class='price-style-right'>
+          <view wx:if="{{priceList && rentPriceOption==1}}" wx:for="{{priceList}}">
+            <text wx:if="{{item.fromTime==0}}" class='col-lightGrey' style='font-size:26rpx'>第0-1小时，价格{{item.rentPrice}}元</text>
+            <text wx:if="{{item.toTime==2}}" class='col-lightGrey' style='font-size:26rpx'>第1-2小时，价格{{item.rentPrice}}元</text>
+          </view>
+          <view wx:if="{{priceList && rentPriceOption==0}}" wx:for="{{priceList}}">
+            <text wx:if="{{item.fromTime==0}}" class='col-lightGrey' style='font-size:26rpx'>第0-1半小时，价格{{item.rentPrice}}元</text>
+            <text wx:if="{{item.toTime==2}}" class='col-lightGrey' style='font-size:26rpx'>第1-2半小时，价格{{item.rentPrice}}元</text>
+          </view>
+          <text class='col-lightGrey' style='font-size:26rpx'>{{lastPrice}}</text>
+          <text class='col-lightGrey' style='font-size:26rpx'>24小时封顶{{rentPriceMax}}元</text>
         </view>
-      </view> -->
-  </view>  
-  <view class='btns-group'>
-       <button  class='middle-btn pain' hover-class='pain-btn-hover'bindtap='getBack'>暂不用车</button>
-       <button  class='middle-btn no-pain' hover-class='btn-hover' bindtap='useBike'>直接用车</button>
+        <!-- <text class='col-lightGrey'>{{lastPrice}}</text> -->
+      </view>
+
+
+    </view>
+
+  </view>
+  <view class='btn-view'>
+    <!-- <button  class='middle-btn pain' hover-class='pain-btn-hover'bindtap='getBack'>暂不用车</button> -->
+    <button class='middle-btn no-pain' hover-class='btn-hover' bindtap='useBike' style='width:600rpx;border-radius:96rpx'>点击开锁</button>
+  </view>
+  <view style='margin:0 30rpx'>
+    <view style='font-size:34rpx;margin-bottom:20rpx'>温馨提示</view>
+
+    <view class='bottom-view'>
+      <view class='dian-icon'></view>
+      <text>成功开锁后开始计费</text>
+    </view>
+    <view class='bottom-view'>
+      <view class='dian-icon'></view>
+      <text>指定区域内成功还车后，系统将自动退还预付款所剩金额到原账户</text>
+    </view>
+    <view class='bottom-view' bindtap='goRule'>
+      <view class='dian-icon'></view>
+      <text>请您务必爱护车辆，文明骑车，自觉遵守<text style='color:#50CC99' >《全域骑游用户租车协议》</text></text>
+    </view>
+
   </view>
 </view>

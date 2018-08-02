@@ -20,25 +20,21 @@ Page({
   
   },
   bindKeyInput: function (e) {
-    // console.log(e.detail.value.length)
-    // console.log(this.data.phoneNum.length)
     this.setData({
       name: e.detail.value
     })
-    if (this.data.name.length > 1 && this.data.idCard.length >= 15 ){
+    if (this.data.name.length > 1 && this.data.idCard.length >= 18 ){
       this.setData({ isBtnDisabled: false })
     }else {
       this.setData({ isBtnDisabled:true })
     }
  
   },
-  bindKeyInput2: function (e) {
-    // console.log(e.detail.value.length)
-    // console.log(this.data.phoneNum.length)
+  bindKeyInput2: function (e) { 
     this.setData({
       idCard: e.detail.value
     })
-    if (this.data.name.length > 1 && this.data.idCard.length >= 15) {
+    if (this.data.name.length > 1 && this.data.idCard.length >= 18) {
       this.setData({ isBtnDisabled: false })
     } else {
       this.setData({ isBtnDisabled: true })
@@ -49,10 +45,18 @@ Page({
         realname = this.data.name;
     common.sendRequest('/user/certification.action', { personcard, realname},res => {
       console.log("000",res.data)
-      if (res.data.code == 1) {     
-            wx.redirectTo({
-              url: '../index/index',
-            }) 
+      if (res.data.code == 1) {   
+        let param = wx.getStorageSync('param')  
+        if (param){
+          wx.redirectTo({
+            url: '../voucher/voucher',
+          }) 
+        }else{
+          wx.redirectTo({
+            url: '../index/index',
+          }) 
+        }
+
       }else{
         wx.showToast({
           title: '' + res.data.message

@@ -1,1 +1,38 @@
 /* pages/confirm2Use/confirm2Use.wxss */
+.btn-view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 70rpx 0
+}
+.dian-icon{
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: #50CC99;
+  margin-right: 10rpx
+}
+.bottom-view{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx
+}
+.price-style-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end
+}
+.view-top{
+  height: 220rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-right: 30rpx
+}
+.view-top-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center
+}

@@ -1,0 +1,16 @@
+<!--pages/picerule/picerule.wxml-->
+<view style='padding:0 30rpx'>
+<view class='title-style'>计费规则</view>
+<view class='title1-style'>预付款：</view>
+<text style='margin-right:60rpx'></text>
+<text style='color:#949494'>租车是需要预缴199元预付款,还车的时候,扣车骑行费用后剩余金额原路返回到您的账户中。</text>
+<view style='height:20rpx'></view>
+<view class='title1-style'>租车费用：</view>
+<text style='margin-right:60rpx'></text>
+<text style='color:#949494'>因骑游车型和景点的不同，计价方式稍有不同，扫码车锁上的二维码查看计算费用。</text>
+<view style='height:20rpx'></view>
+<view class='title1-style'>骑车保险：</view>
+<text style='margin-right:60rpx'></text>
+<text style='color:#949494'>保险费是0.5/次起，根据车型不同也有差别，可扫码车锁上的二维码查看。保险信息详情请阅读《全域服务协议》</text>
+</view>
+

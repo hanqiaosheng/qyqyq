@@ -1,0 +1,4 @@
+/* pages/voucher/voucher.wxss */
+.blue-btn-hover{
+  background: #B5B5B5
+}

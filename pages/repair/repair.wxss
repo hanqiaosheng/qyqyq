@@ -1,0 +1,113 @@
+/* pages/repair/repair.wxss */
+@import "../common/lib/weui.wxss";
+.title{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin: 30rpx 0
+}
+.repair-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bikeRepair{
+  width: 100%;
+  border: 1px #ccc solid;
+  margin-right: 20rpx;
+  padding-left: 20rpx;
+  border-radius: 60rpx
+}
+.repair-left{
+  height:348rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start
+}
+.repair-right{
+  height:348rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end
+}
+ .repair-check{
+display:inline-block;
+width:110rpx;
+border:1px #ccc solid;
+padding:5px 5px;
+height:35rpx;
+text-align:center;
+line-height:35rpx;
+border-radius: 35rpx
+} 
+.active{
+  color:#4AC39A;
+  border:1px #4AC39A solid
+}
+checkbox .wx-checkbox-input{
+   border-radius: 50%;
+   width: 30rpx; 
+   height: 30rpx; 
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+  line-height: 35rpx;
+   font-size:30rpx; 
+  color: #4AC39A;
+}
+textarea{
+  width:670rpx;
+height:200rpx;
+display:block;
+position:relative;
+border: 1px #ccc solid;
+padding: 10rpx 10rpx
+}
+.length-style{
+  font-size: 28rpx;
+  color: #ccc;
+  position: absolute;
+  bottom: 10rpx;
+right: 10rpx
+}
+.weui-uploader__input-bo {
+  float: left;
+  position: relative;
+  margin-right: 9px;
+  margin-bottom: 9px;
+  width: 77px;
+  height: 77px;
+  border: 1px dashed #D9D9D9;
+}
+.weui-uploader__input-bo:before,
+.weui-uploader__input-bo:after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #D9D9D9;
+}
+/* .weui-uploader__input-bo:before {
+  width: 2px;
+  height: 39.5px;
+}
+.weui-uploader__input-bo:after {
+  width: 39.5px;
+  height: 2px;
+} */
+.weui-uploader__input-bo:active {
+  border-color: #999999;
+}
+.weui-uploader__input-bo:active:before,
+.weui-uploader__input-bo:active:after {
+  background-color: #999999;
+}
+.last-box{
+  color: #BEBEBE;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+margin-top: 20rpx
+}

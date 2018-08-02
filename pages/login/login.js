@@ -44,9 +44,9 @@ Page({
     // }
     if (e.detail.value.length >= 11) {
       this.setData({
-        validation_btn_border: '#72C54D 1px solid',
-        validation_btn_color: '#72C54D',
-        login_btn_background: '#72C54D',
+        validation_btn_border: '#50CC99 1px solid',
+        validation_btn_color: '#50CC99',
+        login_btn_background: '#50CC99',
         captchaFlag: true
       })
       // if (this.data.validation.length >= 4){
@@ -69,7 +69,7 @@ Page({
     })
     if (this.data.validation.length >= 4 && this.data.phoneNum.length >= 11) {
       this.setData({
-        login_btn_background: '#72C54D',
+        login_btn_background: '#50CC99',
         loginFlag: true
       })
     } else {

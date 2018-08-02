@@ -1,0 +1,71 @@
+/* pages/recharge/recharge.wxss */
+.content {
+  padding: 15px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenttest {
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: bold
+}
+
+.rechage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button {
+  margin: 0;
+  background: #50CC99;
+  color: white;
+    width:690rpx;
+  border:none;
+  font-size:32rpx;
+  font-family:inherit;
+  height:96rpx;
+  line-height:96rpx;
+  border-radius:48rpx;
+  margin-top: 230rpx
+}
+
+.ruletext {
+  font-size: 16px;
+  margin: 12px 0;
+}
+
+.ruletest {
+  font-size: 14px;
+  color: #afafaf;
+}
+.recharge-box{
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  align-items: center
+}
+.recharge-zibox{
+ width: 318rpx;
+  height: 142rpx;
+  border: 1px #50CC99 solid;
+ margin-bottom: 50rpx;
+ border-radius: 20rpx;
+ text-align: center;
+ line-height: 142rpx;
+ font-size: 38rpx
+}
+.recharge-zibox.active {
+background: #50CC99
+}
+.member-image {
+  width: 85rpx;
+  height: 85rpx;
+  margin-right: 8rpx
+}
+.pay-right{
+  display: flex;
+  justify-content: center;
+  align-items: center
+}

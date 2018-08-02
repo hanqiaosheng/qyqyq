@@ -26,6 +26,7 @@ Page({
     const that = this;
   
     sendRequest('/bikeRent/checkRentState.action',{}, res => {
+      console.log("??????????????????????????????????res.data.data",res.data.data)
       if(res.data.code == 1) {
         const data = res.data.data;
         that.setData({
@@ -40,7 +41,17 @@ Page({
           insurancePrice: options.insurancePrice,
           checkState: data.checkState,
           rentLongtime: data.rideTime,
-          refund: (options.deposite * 100 - data.payMoney *100)/100
+          refund: (options.deposite * 100 - data.payMoney *100)/100,
+
+          bikeAddress: data.bike.bikeAddress,//景区名
+          isVip: data.isVip,
+          coupon: data.coupon,// 折扣
+          modelsName: data.models.modelsName,//车类型
+          rentPriceOption: data.models.modelRentPrice.rentPriceOption,//1代表单位是一小时  2代表单位是半小时
+          lastPrice: data.models.modelRentPrice.lastPrice,//代表最后时段 20元/单位
+          priceList: data.models.modelRentPrice.priceList,//收费标准
+           rentPriceMax: data.models.modelRentPrice.rentPriceMax,//封顶费用(元/天)
+           rentPrice1 : data.bikeRentInfo.rentPrice,//费用结算
         })
 
       }
@@ -53,16 +64,6 @@ Page({
   onReady: function () {
   
   },
-  saveOrder(){
-    let param = {
-      code: this.data.bikeCode,
-      price: this.data.lastPrice,
-      totalPrice: this.data.rentPrice,
-      startTime: this.data.startTime,
-      endTime: this.data.endTimeWdate
-    }
-    sendRequest2yb('/order/order/save', param)
-  },
   cinfirmTrip() {
     const checkState = this.data.checkState,
           payMoneys = this.data.payMoney,
@@ -72,8 +73,8 @@ Page({
       mask: true
     })
     if (checkState == 1) {
-      sendRequest('/pay/refundApplication.action', { payMoneys}, res => {
-        that.saveOrder();
+      sendRequest('/pay/refundApplication.action', { payMoneys, isQuanYu: 1}, res => {
+
         wx.hideLoading()
         if (res.data.code == 1) {
           wx.showModal({
@@ -89,7 +90,7 @@ Page({
         }
       })
     } else if (checkState == 2) {
-      sendRequest('/bikeRent/payMoney.action', { payMoneys }, res => {
+      sendRequest('/bikeRent/payMoney.action', { payMoneys, isQuanyu: 1 }, res => {
           let option = res.data;
           wx.requestPayment({
             'timeStamp': option.timeStamp,
@@ -107,9 +108,7 @@ Page({
                   })
                 }
               })
-           
-
-             
+              wx.hideLoading()       
             },
             'fail': function (res) {
               wx.hideLoading()
@@ -118,6 +117,17 @@ Page({
         })
         
       })
+    } else if (checkState == 3){
+      wx.showModal({
+        title: '',
+        content: '付款成功',
+        success() {
+          wx.navigateBack({
+            delta: 1
+          })
+        }
+      })
+      wx.hideLoading()
     }
 
   },

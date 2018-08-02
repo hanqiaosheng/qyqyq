@@ -32,7 +32,7 @@ page {
    color:#333;
 }
 .col-grey{
-  color:#888;
+  color:#000;
 }
 .col-lightGrey{
   color:#999
@@ -81,7 +81,7 @@ page {
 }
 .pain-btn-hover{
   border:none !important;
-  background: #72C54D !important;
+  background: #ccc !important;
   color:#fff !important;
 }
 .btn-hover {
@@ -101,13 +101,13 @@ page {
   line-height:96rpx;
 }
 .pain {
-  color: #72C54D ;
-  border:  1rpx solid  #72C54D ;
+  color: #A1A1A1;
+  border:  1rpx solid  #A1A1A1 ;
   background-color:#fff ;
 }
 .no-pain{
-  background: #72C54D;
-  color: #fff;
+  background: #50CC99;
+  color: #000;
   border: none;
 }
 .btns-group{
@@ -119,8 +119,8 @@ page {
   padding: 32rpx ;
 }
 button[type="default"]{
-color: #72C54D;
-border-color:  #72C54D;
+color: #50CC99;
+border-color:  #50CC99;
 background-color:#fff;
 
 }
@@ -130,16 +130,18 @@ button{
   font-size:32rpx;
 }
 button[type="mini"] {
-  color: #72C54D;
-  border: 1rpx solid #72C54D;
-  height: 52rpx;
+  color: #fff;
+  border: 1rpx solid #50CC99;
+  height: 72rpx;
   padding: 0 32rpx;
-  line-height: 52rpx;
-  font-size: 28rpx;
+  line-height: 72rpx;
+  font-size: 30rpx;
+  background: #50CC99;
+  border-radius: 72rpx
 }
 .pain-btn {
-  color: #72C54D;
-  border: 1rpx solid #72C54D;
+  color: #50CC99;
+  border: 1rpx solid #50CC99;
 
   padding: 0 32rpx;
   line-height: 52rpx;
@@ -152,7 +154,7 @@ button[type="mini"] {
 .login_btn{
   width:690rpx;
   margin:40rpx auto 0;
-  background: #72C54D;
+  background: #50CC99;
   border:none;
   color:#fff;
   font-size:32rpx;
@@ -196,7 +198,7 @@ button[type="mini"] {
     justify-content:space-between;
     align-items: center;
     padding-right: 32rpx;
-    min-height: 100rpx;
+    min-height: 120rpx;
  
 }
 
@@ -216,7 +218,7 @@ button[type="mini"] {
   display: inline-block;
   width: 12rpx;
   height:12rpx;
-  background: #72C54D;
+  background: #50CC99;
   border-radius: 50%;
   -webkit-border-radius: 50%;
 }

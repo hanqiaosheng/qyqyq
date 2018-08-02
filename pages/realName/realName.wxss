@@ -20,7 +20,7 @@
   line-height: 100rpx;
   font-size:40rpx;
   font-family:Arial!important;
-  border-bottom:1px #000 solid;
+  border-bottom:1px #cecece solid;
 
 }
 .validation_btn{
@@ -44,6 +44,6 @@ button[disabled]{
   background: #C0C0C0 !important;
 }
 .active{
-    border:#72C54D 1px solid;
-    background:#72C54D;
+    border:#50CC99 1px solid;
+    background:#50CC99;
 }

@@ -2,21 +2,63 @@
 
 .horizontal-list-item .left {
   display: flex;
-  align-items: center
+  align-items: center;
 }
+
 .horizontal-list-item .left image {
   width: 40rpx;
-  height:  40rpx;
+  height: 40rpx;
   margin-right: 24rpx;
 }
-.horizontal-list-item .right button {
 
+.horizontal-list-item .right button {
 }
+
 .horizontal-list-item .right .arrow {
   width: 12rpx;
   height: 20rpx;
 }
+
 .horizontal-list-item .right  .phone-call {
   text-decoration: underline;
-  color: #4A90E2
+  color: #4a90e2;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.member-image {
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 4rpx
+}
+
+.dian-style {
+  font-size: 30rpx;
+}
+
+.menber-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-style {
+  height: 410rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bottom-style{
+  height: 20rpx;
+  background: #F0F1F5
 }

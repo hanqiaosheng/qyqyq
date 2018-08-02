@@ -1,0 +1,5 @@
+/* pages/handbook/handbook.wxss */
+.horizontal-list-item .right .arrow {
+  width: 16rpx;
+  height: 26rpx;
+}

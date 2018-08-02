@@ -33,7 +33,7 @@ Page({
     });
     if (that.data.code.length >= 4 && that.data.phoneNum.length >= 11) {
       this.setData({
-        login_btn_background: '#72C54D',
+        login_btn_background: '#50CC99',
         loginFlag: true
       })
     } else {
@@ -129,14 +129,14 @@ Page({
     // }
     if (this.data.phoneNum.length >= 11) {
       this.setData({
-        validation_btn_border: '#72C54D 1px solid',
-        validation_btn_color: '#72C54D',
-        login_btn_background: '#72C54D',
+        validation_btn_border: '#50CC99 1px solid',
+        validation_btn_color: '#50CC99',
+        login_btn_background: '#50CC99',
         captchaFlag: true
       })
       if (this.data.code.length >= 4){
         this.setData({
-          login_btn_background: '#72C54D'
+          login_btn_background: '#50CC99'
         })
       }
     } else {
@@ -154,7 +154,7 @@ Page({
     })
     if (this.data.code.length >= 4 && this.data.phoneNum.length >= 11) {
       this.setData({
-        login_btn_background: '#72C54D',
+        login_btn_background: '#50CC99',
         loginFlag: true
       })
     } else {
@@ -331,25 +331,32 @@ Page({
     wx.login({
       success: function (res) {
         if(res.code){
-          common.sendRequest("/user/regist.action", { telphone: mobile, telCode: validation, smallCode:res.code }, response => {
+          common.sendRequest("/user/regist.action", { 
+            telphone: mobile, 
+            telCode: validation, 
+            smallCode: res.code,
+             isQuanYu:1
+             }, response => {
             console.log(response)
             if (response.data.code == 1) {
               wx.setStorageSync('token', response.data.data.token);
-
-              wx.login({
-                success(res){
-                  common.sendRequest2yb('/user/weixinRegist', {
-                    code: res.code,
-                    phone: mobile,
-                    verifCode: 123456
-                  }, result => {
-                    wx.setStorageSync('access_token', result.data.data.token);
-                    wx.redirectTo({
-                      url: '../realName/realName',
-                    })
-                  })
-                }
+              wx.redirectTo({
+                url: '../realName/realName',
               })
+              // wx.login({
+              //   success(res){
+              //     common.sendRequest2yb('/user/weixinRegist', {
+              //       code: res.code,
+              //       phone: mobile,
+              //       verifCode: 123456
+              //     }, result => {
+              //       wx.setStorageSync('access_token', result.data.data.token);
+              //       wx.redirectTo({
+              //         url: '../realName/realName',
+              //       })
+              //     })
+              //   }
+              // })
             }
             wx.showToast({
               title: '' + response.data.message,

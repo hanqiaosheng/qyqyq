@@ -1,69 +1,90 @@
 <!--pages/userCenter/userCenter.wxml-->
 
 <view class='container'>
+  <view class='header-style'>
+    <view class='userinfo-avatar' bindtap='gocredit'>
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view style='font-weight: bold;font-size:32rpx;margin-bottom:30rpx;'>{{phoneNum}}</view>
+    <view class='menber-style'>
+      <view class='.menber-style' wx:if="{{isVip}}">
+        <image src='../image/vip-icon.png' class='member-image'></image>
+        <text style='font-size: 30rpx;'>会员</text>
+      </view>
+      <view class='.menber-style' wx:else>
+        <image src='../image/no-vip-icon.png' class='member-image'></image>
+        <text style='font-size: 30rpx;'>游客</text>
+      </view>
+      <view style=' width: 10rpx;height: 10rpx;border-radius: 50%;background: #50CC98;margin:0 6rpx'></view>
+      <view class='dian-style'>信用分{{userTotalGrade}}</view>
+    </view>
+  </view>
+<view class='bottom-style'></view>
+
+
   <view class='horizontal-list'>
-      <view class='horizontal-list-item-wrapper '>
-        <view class='horizontal-list-item hr'>
-          <view class='left'>
-            <image  src='../image/ucenter_icon_kuan.png'></image>
-            <text >预付款</text>
-          </view>
-          <view class='right'>
-            <button type='mini' bindtap='refund' class='mini-btn' plain='true' hover-class='pain-btn-hover'>退款</button>
-          </view>
+ 
+        <navigator url='../wallet/wallet' class='horizontal-list-item-wrapper '>
+      <view class='horizontal-list-item hr'>
+        <view class='left'>
+          <image src='../image/ucenter_icon_kuan.png'></image>
+          <text>我的钱包</text>
         </view>
-        
-      </view>
-      <navigator url='../tripLog/tripLog' class='horizontal-list-item-wrapper '>
-        <view class='horizontal-list-item hr'>
-          <view class='left'>
-            <image  src='../image/tabbar_icon_trip.png'></image>
-            <text>我的行程</text>
-          </view>
-          <view class='right'>
-            <image class='arrow' src='../image/arrow.png'></image>
-          </view>
-        </view>
-      </navigator>
-      <navigator url='../myMessage/myMessage' class='horizontal-list-item-wrapper '>
-        <view class='horizontal-list-item'>
-          <view class='left'>
-            <image  src='../image/ucenter_icon_im.png'></image>
-            <text>我的消息</text>
-          </view>
-          <view class='right'>
-            <image class='arrow' src='../image/arrow.png'></image>
-          </view>
-        </view>
-      </navigator>
-  </view>
-  <view class='horizontal-list mt-16'>
-     
-      <view class='horizontal-list-item-wrapper '>
-        <view class='horizontal-list-item '>
-          <view class='left'>
-            <image  src='../image/home_icon_kefu_k.png'></image>
-            <text>联系客服</text>
-          </view>
-          <view class='right' bindtap='phoneCall'>
-            <text class='phone-call'>{{telPhone}}</text>
-          </view>
+        <view class='right'>
+          <image class='arrow' src='../image/arrow.png'></image>
         </view>
       </view>
+    </navigator>
+    <navigator url='../tripLog/tripLog' class='horizontal-list-item-wrapper '>
+      <view class='horizontal-list-item hr'>
+        <view class='left'>
+          <image src='../image/tabbar_icon_trip.png'></image>
+          <text>我的行程</text>
+        </view>
+        <view class='right'>
+          <image class='arrow' src='../image/arrow.png'></image>
+        </view>
+      </view>
+    </navigator>
+    <navigator url='../myMessage/myMessage' class='horizontal-list-item-wrapper '>
+      <view class='horizontal-list-item'>
+        <view class='left'>
+          <image src='../image/ucenter_icon_im.png'></image>
+          <text>我的消息</text>
+        </view>
+        <view class='right'>
+          <image class='arrow' src='../image/arrow.png'></image>
+        </view>
+      </view>
+    </navigator>
   </view>
   <view class='horizontal-list mt-16'>
-      <navigator url='../insurance/insurance' class='horizontal-list-item-wrapper '>
-        <view class='horizontal-list-item '>
-          <view class='left'>
-            <image  src='../image/ucenter_icon_baoxian.png'></image>
-            <text>保险申请</text>
-          </view>
-          <view class='right'>
-             <image class='arrow' src='../image/arrow.png'></image>
-          </view>
+
+    <view class='horizontal-list-item-wrapper '>
+      <view class='horizontal-list-item '>
+        <view class='left'>
+          <image src='../image/home_icon_kefu_k.png'></image>
+          <text>联系客服</text>
         </view>
-        
-      </navigator>
-      
+        <view class='right' bindtap='phoneCall'>
+          <text class='phone-call'>{{telPhone}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='horizontal-list mt-16'>
+    <navigator url='../handbook/handbook' class='horizontal-list-item-wrapper '>
+      <view class='horizontal-list-item '>
+        <view class='left'>
+          <image src='../image/ucenter_icon_zhinan.png'></image>
+          <text>我的指南</text>
+        </view>
+        <view class='right'>
+          <image class='arrow' src='../image/arrow.png'></image>
+        </view>
+      </view>
+
+    </navigator>
+
   </view>
 </view>

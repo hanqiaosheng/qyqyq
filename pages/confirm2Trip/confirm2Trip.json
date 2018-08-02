@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "全域骑游"
+  "navigationBarTitleText": "全域骑游",
+    "navigationBarBackgroundColor": "#50CC99",
+    "navigationBarTextStyle": "white"
 }

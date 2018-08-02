@@ -1,0 +1,36 @@
+   <!--pages/wallet/wallet.wxml-->
+   <view class='horizontal-list-item-wrapper' style="display: {{isVip? 'block' : 'none'}}">
+      <view class='horizontal-list-item hr' style="padding-left:32rpx;padding-bottom:30rpx;">
+        <view class='left-money'>
+          <text style='font-size:40rpx'>余额</text>
+          <text style='font-size:26rpx;color:#A6A6A6'><text style='color:red'>{{accountAvailableBalance}}</text>元</text>
+        </view>
+        <view class='right'>
+          <button type='mini' bindtap='goRecharge' class='mini-btn' plain='true' hover-class='pain-btn-hover' style='width: 146rpx;'>充值</button>
+        </view>
+      </view>
+    </view>
+
+   <view class='horizontal-list-item-wrapper'>
+      <view class='horizontal-list-item hr' style='padding-left:32rpx;padding-bottom:30rpx;'>
+        <view class='left-money'>
+          <text style='font-size:40rpx'>预付款</text>
+          <text style='font-size:26rpx;color:#A6A6A6'><text style='color:red'>{{accountDeposit}}</text>元</text>
+        </view>
+        <view class='right'>
+          <button type='mini' bindtap='refund' class='mini-btn' plain='true' hover-class='pain-btn-hover' style='width: 146rpx;'>退款</button>
+        </view>
+      </view>
+    </view>
+
+   <navigator url='/pages/voucherye/voucherye' hover-class="none" class='horizontal-list-item-wrapper'>
+      <view class='horizontal-list-item hr' style='padding-left:32rpx;padding-bottom:30rpx;'>
+        <view class='left-money'>
+          <text style='font-size:40rpx'>优惠券</text>
+          <text style='font-size:26rpx;color:#A6A6A6'><text style='color:red'>{{couponCount}}</text>张</text>
+        </view>
+        <view class='right'>
+ <image class='arrow' src='../image/arrow.png'></image>
+        </view>
+      </view>
+    </navigator> 

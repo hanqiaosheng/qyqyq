@@ -84,10 +84,10 @@ page .code .input-content.active {
   width: 124rpx;
 	flex: 1;
   background-color: #fff;
-  color: #262626;
+  color: #50cc99;
   font-size: 64rpx;
 	margin: 0 29rpx 0 29rpx;
-	border-bottom: 1rpx #72C54D solid;
+	border-bottom: 1rpx #50cc99 solid;
 	position: relative;
 }
 .input_none{

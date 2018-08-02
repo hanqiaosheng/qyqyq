@@ -1,43 +1,121 @@
 <!--pages/confirm2Trip/confirm2Trip.wxml-->
 <view class='container'>
-	<view class="card" >
-    <view class='layout-through-line'>
+  <view class="card">
+    <!-- <view class='layout-through-line'>
       <view class="through-line"></view>
       <text class="bike-num">单车编号 : {{bikeCode}}</text>
       <view class="through-line"></view>
-    </view>
+    </view> -->
     <view class='form-inline'>
-       <view class='layout'>
+      <!-- <view class='layout'>
           <icon class='dolt'></icon>
           <text>{{startTime}}-{{endTime}}</text>
-       </view>
-       <view class='layout'>
+       </view> -->
+      <view class='layout' style='height:60rpx'>
+        <view>
+          <image src='../image/jingqu-icon.png' class='icon'></image>
+          <label class='col-grey'>当前景区：</label>
+        </view>
+        <text style='white-space:noWrap;overflow:hidden;text-overflow:ellipsis;width:400rpx;'>{{bikeAddress}}</text>
+      </view>
+
+      <view class='layout' style='height:60rpx'>
+        <view>
+          <image src='../image/bike-type-icon.png' class='icon'></image>
+          <label class='col-grey'>车辆类型：</label>
+        </view>
+        <text>{{modelsName}}</text>
+      </view>
+
+      <view class='layout' style='height:60rpx'>
+        <view>
+          <image src='../image/qixing-bike.png' class='icon'></image>
+          <label class='col-grey'>车辆编号：</label>
+        </view>
+        <text>{{bikeCode}}</text>
+      </view>
+
+      <view class='layout' style='height:150rpx'>
+        <view>
+          <image src='../image/pshouay-icon.png' class='icon'></image>
+          <label class='col-grey'>收费标准：</label>
+        </view>
+
+        <view class='price-style-right'>
+          <view wx:if="{{priceList && rentPriceOption==1}}" wx:for="{{priceList}}">
+            <text wx:if="{{item.fromTime==0}}" class='col-lightGrey'>第0-1小时，价格{{item.rentPrice}}元</text>
+            <text wx:if="{{item.toTime==2}}" class='col-lightGrey'>第1-2小时，价格{{item.rentPrice}}元</text>
+          </view>
+          <view wx:if="{{priceList && rentPriceOption==0}}" wx:for="{{priceList}}">
+            <text wx:if="{{item.fromTime==0}}" class='col-lightGrey'>第0-1半小时，价格{{item.rentPrice}}元</text>
+            <text wx:if="{{item.toTime==2}}" class='col-lightGrey'>第1-2半小时，价格{{item.rentPrice}}元</text>
+          </view>
+          <text class='col-lightGrey'>{{lastPrice}}/小时</text>
+          <text class='col-lightGrey'>24小时封顶{{rentPriceMax}}元</text>
+        </view>
+
+      </view>
+
+      <view class='layout' style='height:60rpx'>
+        <view>
           <image src='../image/home_icon_time.png' class='icon'></image>
           <label class='col-grey'>骑行时间：</label>
-          <text>{{rentLongtime}}分钟</text>
-       </view>
-        <view class='layout'>
+        </view>
+        <text>{{rentLongtime}}分钟</text>
+      </view>
+
+      <view class='layout' style='height:60rpx'>
+        <view>
           <image src='../image/home_icon_kuan_o.png' class='icon'></image>
+          <label class='col-grey'>预计费用：</label>
+        </view>
+        <text>{{rentPrice1}} (保险费{{insurancePrice}}元)</text>
+      </view>
+
+      <view class='layout' style='height:60rpx'>
+        <view>
+          <image src='../image/yujifei-cion.png' class='icon'></image>
           <label class='col-grey'>费用结算：</label>
-          <text>{{rentPrice}} (保险费{{insurancePrice}}元)</text> 
-       </view>
-        <view class='layout'>
+        </view>
+        <text wx:if="{{coupon == -1}}">{{rentPrice}}</text>
+        <text wx:elif="{{coupon == 0}}">{{rentPrice}} (已用免费骑行券)</text>
+        <text wx:else>{{rentPrice}} (已用{{coupon}}折优惠券)</text>
+      </view>
+
+      <!-- <view wx:if='{{!isVip}}' class='layout' style='height:60rpx'>
+        <view>
+          <image src='../image/home_icon_kuan_o.png' class='icon'></image>
+          <label class='col-grey'>退预付款：</label>
+        </view>
+        <text>{{rentPrice}} (成功还车自动退还)</text>
+      </view> -->
+
+      <!-- <view class='layout'>
           <image src='../image/home_icon_adr.png' class='icon'></image>
           <label class='col-grey'>起始地点：</label>
           <text>{{startPlace}}</text>
-       </view>
+       </view> -->
     </view>
     <view wx:if='{{checkState == 1}}'>
-       <view class='t_c'  >退还预交费 <text class='col-red'>(自动退还)</text></view>
-       <view class='font-72 t_c'>{{refund}}元</view>
+      <view class='t_c'>退还预交费
+        <text class='col-red'>(自动退还)</text>
+      </view>
+      <view class='font-72 t_c'>{{refund}}元</view>
     </view>
-   <view wx:else>
-      <view class='t_c'  >您需要补交</view>
+    <view wx:else>
+      <view class='t_c'>您需要补交</view>
       <view class='font-72 t_c'>{{payMoney}}元</view>
-   </view>
-     
+    </view>
+
   </view>
   <view class='btn-group'>
-    <button  class='full-btn no-pain' hover-class='btn-hover' bindtap='cinfirmTrip'>确认行程</button>
+    <button class='full-btn no-pain' hover-class='btn-hover' bindtap='cinfirmTrip' style='border-radius:96rpx'>确认行程</button>
+  </view>
+  <view class='box-bottom-tish'>
+  <text style='font-size:32rpx;margin-bottom:20rpx'>温馨提示</text>
+  <view class='box-bottom-dian'>
+  <view class='dianStyle'></view>
+  <text>超过5分钟，按1小时收费</text>
+  </view>
   </view>
 </view>

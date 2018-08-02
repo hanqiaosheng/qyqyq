@@ -1,0 +1,17 @@
+/* pages/picerule/picerule.wxss */
+.title-style{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40rpx;
+  font-weight: bold;
+  margin: 30rpx 0
+}
+.title1-style{
+  font-size: 32rpx;
+}
+p{
+word-break:normal;
+white-space:pre-warp;
+word-wrap:break-word;
+}

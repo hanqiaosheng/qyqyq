@@ -1,0 +1,20 @@
+<!--pages/recharge/recharge.wxml-->
+<view class='content'>
+  <view class='contenttest'>充值金额</view>
+  <form bindsubmit="formSubmit">
+<view class='recharge-box'>
+  <view wx:for="{{navber}}" wx:key="{{unique}}" data-idx="{{index+1}}" bindtap='navbarTap' class="recharge-zibox {{currentTop==index+1 ? 'active' : ''}}"><text>充{{item.num}}元</text></view>
+</view>
+
+<view class='contenttest'>支付方式</view>
+  <view class='rechage contenttest'>
+  <view class='pay-right'>
+    <image src='../image/paywachat-icon.png' class='member-image'></image>
+    <text>微信支付</text>
+  </view>
+    <icon type='success' size='25' color='#50CC99' />
+  </view>
+
+   <button formType="submit">确认充值</button> 
+  </form>
+</view>

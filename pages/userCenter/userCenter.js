@@ -8,24 +8,26 @@ Page({
    */
   data: {
     isShowBtn:false,
-    telPhone: app.globalData.tel
+    telPhone: app.globalData.tel,
+    isVip:true,
+    creditNum:1313
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // var phoneNum=wx.getStorageSync("phoneNum")
+    // this.setData({
+    //   phoneNum: phoneNum
+    // })
   },
-  refund(){
-    sendRequest('/pay/toRefund.action', {}, res => {
-      wx.showModal({
-        title: '',
-        content: `${res.data.message}`,
-        showCancel:false
-      })
+  gocredit(){
+    wx.navigateTo({
+      url: "/pages/information/information?creditNum=" + this.data.creditNum + "&phoneNum=" + this.data.phoneNum + "&userTotalGrade=" + this.data.userTotalGrade
     })
   },
+
   phoneCall(){
     wx.makePhoneCall({
       phoneNumber: app.globalData.tel //仅为示例，并非真实的电话号码
@@ -42,7 +44,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    sendRequest('/user/userPage.action',{},res=>{
+      if(res.data.code == 1){
+        this.setData({
+          isVip:res.data.data.isVip,
+           phoneNum: res.data.data.user.userTel,
+           userRealname: res.data.data.user.userRealname,
+           userTotalGrade: res.data.data.user.userTotalGrade
+        })
+        console.log(res.data.data)
+      }
+    })
   },
 
   /**

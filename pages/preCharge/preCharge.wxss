@@ -35,3 +35,15 @@ text{
 .mgt-50{
   margin-top: 50rpx;
 }
+.price-style{
+  display: flex;
+  justify-content: center;
+  /* align-items: center */
+  margin-top:20rpx
+}
+.price-style-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start
+}

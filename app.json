@@ -1,15 +1,25 @@
 {
   "pages": [
+    
     "pages/index/index",
+    "pages/confirm2Trip/confirm2Trip",
+    "pages/voucherye/voucherye",
+    "pages/repair/repair",
+    "pages/wallet/wallet",
+    "pages/confirm2Use/confirm2Use",
+    "pages/userCenter/userCenter",
+    "pages/voucher/voucher",
+    "pages/picerule/picerule",
+    "pages/information/information",
+    "pages/norecharge/norecharge",
+    "pages/recharge/recharge",
+    "pages/handbook/handbook",
     "pages/login/login",
     "pages/loginYan/loginYan",
     "pages/preCharge/preCharge",
     "pages/rule/rule",
     "pages/insurance/insurance",
     "pages/unlockWithBle/unlockWithBle",
-    "pages/confirm2Trip/confirm2Trip",
-    "pages/confirm2Use/confirm2Use",
-    "pages/userCenter/userCenter",
     "pages/tripLog/tripLog",
     "pages/realName/realName",
     "pages/myMessage/myMessage"

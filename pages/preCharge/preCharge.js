@@ -17,11 +17,18 @@ Page({
   onLoad: function (options) {
 
     const rentOption = app.globalData.rentOption
+    const isVip = rentOption.isVip;
     const deposite = rentOption.bikeDeposit;
-    const lastPrice = rentOption.rentPriceOption == 1 ? `${rentOption.lastPrice}元/小时` : `${rentOption.lastPrice}元/半小时`
+    const priceList = rentOption.priceList;
+    const rentPriceMax = rentOption.rentPriceMax;
+    const lastPrice = rentOption.rentPriceOption == 1 ? `${rentOption.lastPrice}元/小时` : `${rentOption.lastPrice}元/半小时`;
     this.setData({
+      isVip,
       deposite,
-      lastPrice
+      lastPrice,
+      priceList,
+      rentPriceMax,
+      rentPriceOption: rentOption.rentPriceOption,
     })
     console.log(deposite)
    
@@ -31,28 +38,40 @@ Page({
     wx.showLoading({
       title: '正在处理中'
     })
-    sendRequest('/pay/addRecharge.action', { rechargeMoney: this.data.deposite }, res => {
-      let option = res.data;
-      console.log(option)
-      wx.requestPayment({
-        'timeStamp': option.timeStamp,
-        'nonceStr': option.nonceStr,
-        'package': option.package,
-        'signType': option.signType,
-        'paySign': option.paySign,
-        'success': function (res) {
-          wx.hideLoading()
-          //const bikeCode = that.data.bikeCode
-          wx.redirectTo({
-            url: '../confirm2Use/confirm2Use',
+    sendRequest('/pay/addRecharge.action', { 
+      rechargeMoney: this.data.deposite,
+      flag: that.data.isVip ? 2 : 1,
+      isQuanYu: 1
+      }, res => {
+        if(res.data.state == 1){
+          let option = res.data;
+          console.log(option)
+          wx.requestPayment({
+            'timeStamp': option.timeStamp,
+            'nonceStr': option.nonceStr,
+            'package': option.package,
+            'signType': option.signType,
+            'paySign': option.paySign,
+            'success': function (res) {
+              wx.hideLoading()
+              //const bikeCode = that.data.bikeCode
+              wx.redirectTo({
+                url: '../confirm2Use/confirm2Use',
+              })
+
+
+            },
+            'fail': function (res) {
+              wx.hideLoading()
+            }
           })
-    
-       
-        },
-        'fail': function (res) {
-          wx.hideLoading()
+        }else{
+          wx.showModal({
+            title: '',
+            content: res.data.msg,
+          })
         }
-      })
+
     })
   },
 

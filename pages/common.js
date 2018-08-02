@@ -46,13 +46,13 @@ function checkNetWorkStatus(successCallback) {
 function wxLogin(callback) {
   wx.login({
     success: function (res) {
-      console.log(res.code)
+      console.log("ppppppppppppppppppp",res.code)
 
       if (res.code) {
         //存储CODE
         var code = res.code;
         var third_session = '';
-        sendRequest("/user/wxsLogin.action", { code: code }, (res) => {
+        sendRequest("/user/wxsLogin.action", { code: code ,isQuanYu:1}, (res) => {
           let code = res.data.code;
           console.log(code)
           if (code == 0) {
@@ -92,24 +92,33 @@ function wxLogin2yb(callback) {
       if (res.code) {
         //存储CODE
         var code = res.code;
+       
         sendRequest2yb("/user/weixinLogin", { code: code }, (res) => {
-          let code = res.data.data.code;
-          console.log(code)
-          // if (code == 0) {
-          //   console.log('xxxxx')
-          //   wx.redirectTo({
-          //     url: '../login/login',
-          //   })
-          //   return;
-          // } else if (code == 2) {
-          //   wx.redirectTo({
-          //     url: '../realName/realName',
-          //   })
-          //   wx.setStorageSync('token', res.data.data.token);
-          // } else {
+          if (res.data.success){
+            let code = res.data.data.code;
+            console.log("000000000000000", res.data)
+            // if (code == 0) {
+            //   console.log('xxxxx')
+            //   wx.redirectTo({
+            //     url: '../login/login',
+            //   })
+            //   return;
+            // } else if (code == 2) {
+            //   wx.redirectTo({
+            //     url: '../realName/realName',
+            //   })
+            //   wx.setStorageSync('token', res.data.data.token);
+            // } else {
             wx.setStorageSync('access_token', res.data.data.token);
             callback();
           //}
+          }else{
+            wx.showModal({
+              title: '',
+              content: '系统不可用',
+            })
+          }
+
 
         }, (res) => {
           console.log('error', res)
@@ -203,26 +212,6 @@ function sendRequest(url, param, callback, failCallback){
    
   }
 
-// function ShareAppMessage(res) {
-//   return {
-//     title: '1步单车-骑1步单车，快1步到达',
-//     path: '/pages/index/index',
-//     imageUrl: "../image/share.png",
-//     success: function (res) {
-//       console.log(res)
-//       wx.showToast({
-//         title: '分享成功 ',
-//       })
-//       // 转发成功
-//     },
-//     fail: function (res) {
-//       // 转发失败
-//       wx.showToast({
-//         title: '分享成功失败',
-//       })
-//     }
-//   }
-// }
 function sendRequest2yb(url, param, callback, failCallback) {
   var app = getApp();
   var token = wx.getStorageSync("access_token") || '';
@@ -286,8 +275,8 @@ function sendRequest2yb(url, param, callback, failCallback) {
     checkNetWorkStatus,
     sendRequest,
     wxLogin,
-    sendRequest2yb,
-    wxLogin2yb,
+    // sendRequest2yb,
+    // wxLogin2yb,
     getLocation
    
   }

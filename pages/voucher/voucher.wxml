@@ -1,0 +1,18 @@
+<!--pages/voucher/voucher.wxml-->
+<view style='margin:0 30rpx'>
+<view><image src='../image/voucher-banner.png' style='width:100%;'></image></view>
+
+<view  wx:if="{{couponState == 1}}" style='color:#B5B5B5'>
+<view>类型劵：免费骑行券</view>
+<view>有效期：1天</view>
+</view>
+
+<view  wx:if="{{couponState == 2}}" style='color:#B5B5B5'>
+<view>类型劵：8.5折优惠券</view>
+<view>有效期：15天</view>
+</view>
+
+<button class="login_btn" loading="{{btnLoading}}" hover-class="blue-btn-hover" bindtap="voucher" size="default" style="border-radius:48rpx;">{{couponState == 1 ? '领取骑行卷' : '领取优惠卷'}}</button>
+<view style='font-size:32rpx;margin-top:50rpx'>使用说明</view>
+<view style='font-size:28rpx;margin-top:20rpx'>用户领取全域骑游单车骑行卷后，在全域租车骑游小程序上扫码解锁单车,完成形成后全域骑游会自动为您选择骑行卷进行结费抵扣，不支持手动选择骑行卷。</view>
+</view>

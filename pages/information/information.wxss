@@ -1,0 +1,25 @@
+/* pages/information/information.wxss */
+.header-style{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40rpx;
+  border-bottom:1px #ccc solid;
+padding-bottom:20px;
+}
+.name-style{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 36rpx
+}
+.userinfo-avatar {
+  overflow: hidden;
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}

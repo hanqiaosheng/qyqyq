@@ -1,49 +1,95 @@
 .card {
   padding: 24rpx 32rpx 20rpx;
   background: #fff;
-  border-bottom:1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
-.layout-through-line{
+
+.layout-through-line {
   display: flex;
   align-items: center;
 }
+
 .layout-through-line .through-line {
-   flex-grow:1;
-   height: 1px;
-   background: #ddd;
+  flex-grow: 1;
+  height: 1px;
+  background: #ddd;
 }
+
 .layout-through-line text {
   padding: 0 20rpx;
 }
+
 .form-inline {
-  border-bottom:1px solid #ddd; 
-  padding: 18rpx 0 24rpx;
+  border-bottom: 1px solid #ddd;
+  padding: 0 0 24rpx;
 }
-.form-inline .layout{
+
+.form-inline .layout {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 12rpx
+  margin-top: 12rpx;
 }
+
 .form-inline .layout .dolt {
   margin-right: 24rpx;
   margin-left: 8rpx;
 }
-.form-inline .layout .icon{
+
+.form-inline .layout .icon {
   width: 28rpx;
   height: 28rpx;
   margin-right: 16rpx;
 }
-.form-inline .layout label{
-  white-space:noWrap;
+
+.form-inline .layout label {
+  white-space: noWrap;
 }
+
 .form-inline .layout  text {
-   white-space:noWrap;
-   overflow:hidden;
-   text-overflow:ellipsis;
+  white-space: noWrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #888;
 }
-.card .t_c{
+
+.card .t_c {
   margin-top: 25rpx;
 }
+
 .card .font-72 {
-  margin-top: 12rpx
+  margin-top: 12rpx;
+}
+
+.price-style-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.box-bottom-tish {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30rpx;
+  margin-top: 40rpx;
+}
+
+.box-bottom-dian {
+  display: flex;
+  align-items: center;
+}
+
+.dianStyle {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: #50cc99;
+  margin-right: 10rpx;
+}
+.price-style-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
 }
