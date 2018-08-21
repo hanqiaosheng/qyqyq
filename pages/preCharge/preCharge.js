@@ -38,6 +38,7 @@ Page({
     wx.showLoading({
       title: '正在处理中'
     })
+    console.log("是否会员", that.data.isVip)
     sendRequest('/pay/addRecharge.action', { 
       rechargeMoney: this.data.deposite,
       flag: that.data.isVip ? 2 : 1,

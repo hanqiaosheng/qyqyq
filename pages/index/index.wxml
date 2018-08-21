@@ -13,8 +13,8 @@
   polyline="{{polyline}}"></map>
 
 <cover-view class='top-mark-ts'>
-<cover-image src='../image/index-jinggao-icon.png' style='width: 70rpx;height: 70rpx;'></cover-image>
-<cover-view style='margin-right:120rpx'>还车时，请在指定还车点还车。</cover-view>
+<cover-image src='../image/index-jinggao-icon.png' style='width: 70rpx;height: 70rpx; position: absolute;left: 10rpx;top: 0;z-index:100'></cover-image>
+<cover-view class='marquee_text'>{{text}}</cover-view>
 </cover-view>
 
   <cover-view  class='marsk' style="{{!isShow ? ' display: block' : 'display: none'}}">

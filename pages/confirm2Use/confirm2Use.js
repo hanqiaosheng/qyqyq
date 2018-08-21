@@ -74,8 +74,7 @@ Page({
     const priceList = rentOption.priceList;
     const rentPriceMax = rentOption.rentPriceMax;
 
-    const lastPrice = rentOption.rentPriceOption == 1 ? `${rentOption.lastPrice}元/小时` : `${rentOption.lastPrice}元/半小时` 
-
+    const lastPrice = rentOption.rentPriceOption == 1 ? `${rentOption.lastPrice}元/小时` : `${rentOption.lastPrice}元/半小时`
     this.setData({
       bikeCode,
       lastPrice,

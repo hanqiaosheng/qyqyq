@@ -32,7 +32,7 @@ Page({
         that.setData({
           lastPrice: options.lastPrice,
           bikeCode: options.bikeCode,
-          rentPrice: (options.rentPrice * 100 + options.insurancePrice * 100)/100,
+          rentPrice: (options.rentPrice * 100 + options.insurancePrice * 100) / 100,//费用结算含保险费
           startPlace: options.startPlace,
           startTime: options.startTime,
           endTime: options.endTime.split(' ')[1],
@@ -51,7 +51,7 @@ Page({
           lastPrice: data.models.modelRentPrice.lastPrice,//代表最后时段 20元/单位
           priceList: data.models.modelRentPrice.priceList,//收费标准
            rentPriceMax: data.models.modelRentPrice.rentPriceMax,//封顶费用(元/天)
-           rentPrice1 : data.bikeRentInfo.rentPrice,//费用结算
+           rentPrice1 : data.bikeRentInfo.rentPrice,//预计费用
         })
 
       }
@@ -74,7 +74,7 @@ Page({
     })
     if (checkState == 1) {
       sendRequest('/pay/refundApplication.action', { payMoneys, isQuanYu: 1}, res => {
-
+        console.log("退款", res.data.code)
         wx.hideLoading()
         if (res.data.code == 1) {
           wx.showModal({

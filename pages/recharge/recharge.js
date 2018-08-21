@@ -9,19 +9,19 @@ Page({
   data: {
     navber: [{
       id:1,
-      num:0.01
+      num:50
     }, {
       id:2,
-      num: 0.02
+      num: 100
       }, {
         id:3,
-        num: 0.03
+        num: 150
     }, {
       id:4,
-      num: 0.04
+      num: 200
     }],
     currentTop: 1,
-    num:0.01,
+    num:50,
   },
   navbarTap: function (e) {
     let mark = {}
@@ -50,7 +50,7 @@ Page({
           sendRequest('/pay/addRecharge.action', {
             rechargeMoney: that.data.num,
             isQuanYu: 1,
-            flag: that.data.isVip ? 2 : 1
+            flag: 2 
           }, res => {
             if (res.data.state == 1) {
               let option = res.data;
@@ -93,10 +93,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  this.setData({
-    accountAvailableBalance: options.accountAvailableBalance,
-    isVip:options.isVip
-  })
+
   },
 
   /**

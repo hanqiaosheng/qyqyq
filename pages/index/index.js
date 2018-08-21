@@ -23,6 +23,7 @@ var myAmapFun = new amapFile.AMapWX({
 var timer;
 Page({
   data: {
+    text: "请在指定还车点还车；未在指定还车点还车，系统将持续扣费！",
     ismapno:false,
     isShow:false,
     //地图的宽高
@@ -233,13 +234,15 @@ Page({
           // })
           let point = that.data.point;
           let qrCode = res.result.split("=")[1];
-    
+          console.log("当前坐标", point)
+    // wx.setStorageSync("bikeState", bikeState)
+          wx.setStorageSync("bikecode", qrCode)
           if (qrCode) {
             let codeArr = qrCode.split('')
             if (codeArr[0] == 'y') {
               wx.navigateToMiniProgram({
                 appId: 'wx0b30ad196e91fce4',
-                envVersion: 'trial',
+                envVersion: 'release',
                 success(res) {
                   console.log("/////打开成功/////////////" )
                 }
@@ -290,7 +293,10 @@ Page({
           password = data.pass.split(',').map(n => +n),
           macAdd = data.mac,
           key = new Uint8Array(data.key.split(',').map(n => +n));
-        wx: wx.setStorageSync("bikeState", bikeState)
+         wx.setStorageSync("bikeState", bikeState)
+        wx.setStorageSync("password", password)
+        wx.setStorageSync("macAdd", macAdd)
+        wx.setStorageSync("reskey", data.key)
         app.globalData.lockOption = {
           password,
           macAdd,
@@ -331,6 +337,16 @@ Page({
               })
             }
 
+          } else if(code==9){
+            if (data.isVip) {
+              wx.navigateTo({
+                url: '../recharge/recharge',
+              })
+            } else {
+              wx.navigateTo({
+                url: '../preCharge/preCharge',
+              })
+            }
           } else {
             console.log(code)
             wx.navigateTo({
@@ -484,10 +500,10 @@ wx.showModal({
   },
   overTrip: function(e) {
     let that = this,
-      bikeCode = this.data.bicycleCode,
-      password = this.data.password,
-      macAdd = this.data.macAdd,
-      key = this.data.key;
+      bikeCode = wx.getStorageSync('bikecode'),
+      password = wx.getStorageSync('password'),
+      macAdd = wx.getStorageSync('macAdd'),
+      key = new Uint8Array(wx.getStorageSync('reskey').split(',').map(n => +n));
     console.log("++++++++++++++++++",macAdd)
     wx.showLoading({
       title: '正在处理中',
@@ -495,7 +511,7 @@ wx.showModal({
     })
 
 let bikeState = wx.getStorageSync('bikeState')
-if(bikeState==1){
+if(bikeState==1){ 
   common.getLocation(res=>{
     let userAtitude = res.latitude, //结束地点的纬度
       userLongitude = res.longitude;
@@ -503,7 +519,7 @@ if(bikeState==1){
         userLongitude,
         userAtitude
       }, res => {
-        console.log("?????????/bikeRent/rentBike.action'????????????", res.data)
+        console.log("?????????/bikeRent/rentBike.action'????????????", res.data.code)
         if (res.data.code == 1) {
           let rentInfo = res.data.data.bikeRentInfo,
             rentPrice = rentInfo.rentPrice,
@@ -517,13 +533,124 @@ if(bikeState==1){
             url: `../confirm2Trip/confirm2Trip?bikeCode=${bikeCode}&rentPrice=${rentPrice}&deposite=${deposite}&startPlace=${startPlace}&startTime=${startTime}&endTime=${endTime}&lastPrice=${lastPrice}&insurancePrice=${insurancePrice}`
           })
 
+        } else if(res.data.code==0){
+          wx.showLoading({
+            title: '正在处理中',
+            mask: true
+          })
+          bleUtils.canParking(bikeCode, macAdd, key, password, this, ({
+            bleMarker
+          }) => {
+
+            common.getLocation(res => {
+              let userAtitude = res.latitude, //结束地点的纬度
+                userLongitude = res.longitude,
+                lat = res.latitude,
+                lon = res.longitude,
+                mac = bleMarker,
+                code = bikeCode,
+                param = {
+                  lat,
+                  lon,
+                  mac,
+                  code
+                };
+              console.log(param)
+              common.sendRequest('/bikeRent/parkingCheck.action', param, res => {
+                console.log("请将车停放到指定的蓝牙桩位置______________", res.data)
+                if (!res.data.canParking) {
+                  wx.showModal({
+                    title: '',
+                    content: "请将车辆停至全域骑游指定还车点",
+                  })
+                  wx.hideLoading();
+                  return;
+                }
+                common.sendRequest('/bikeRent/rentBike.action', {
+                  userLongitude,
+                  userAtitude
+                }, res => {
+                  console.log("?????????/bikeRent/rentBike.action'????????????", res.data)
+                  if (res.data.code == 1) {
+                    let rentInfo = res.data.data.bikeRentInfo,
+                      rentPrice = rentInfo.rentPrice,
+                      startPlace = rentInfo.startFixedName,
+                      startTime = utils.formatTime(new Date(rentInfo.rentStarttime)),
+                      deposite = res.data.data.account.accountDeposit,
+                      lastPrice = that.data.unitPrice,
+                      insurancePrice = that.data.insurancePrice,
+                      endTime = utils.formatTime(new Date(rentInfo.rentEndtime));
+                    wx.navigateTo({
+                      url: `../confirm2Trip/confirm2Trip?bikeCode=${bikeCode}&rentPrice=${rentPrice}&deposite=${deposite}&startPlace=${startPlace}&startTime=${startTime}&endTime=${endTime}&lastPrice=${lastPrice}&insurancePrice=${insurancePrice}`
+                    })
+
+                  } else {
+                    wx.showModal({
+                      title: '',
+                      content: res.data.message,
+                    })
+                  }
+                  wx.hideLoading();
+
+                })
+              }, () => {
+                common.sendRequest('/bikeRent/rentBike.action', {
+                  userLongitude,
+                  userAtitude
+                }, res => {
+                  wx.showLoading({
+                    title: '处理中...',
+                  })
+                  console.log(res.data)
+                  if (res.data.code == 1) {
+                    let rentInfo = res.data.data.bikeRentInfo,
+                      rentPrice = rentInfo.rentPrice,
+                      startPlace = rentInfo.startFixedName,
+                      startTime = utils.formatTime(new Date(rentInfo.rentStarttime)),
+                      deposite = res.data.data.account.accountDeposit,
+                      lastPrice = that.data.unitPrice,
+                      insurancePrice = that.data.insurancePrice,
+                      endTime = utils.formatTime(new Date(rentInfo.rentEndtime));
+                    wx.navigateTo({
+                      url: `../confirm2Trip/confirm2Trip?bikeCode=${bikeCode}&rentPrice=${rentPrice}&deposite=${deposite}&startPlace=${startPlace}&startTime=${startTime}&endTime=${endTime}&lastPrice=${lastPrice}&insurancePrice=${insurancePrice}`
+                    })
+
+                  } else {
+                    wx.showModal({
+                      title: '',
+                      content: res.data.message,
+                    })
+                  }
+                  wx.hideLoading();
+
+                })
+              })
+            }, res => {
+              wx.hideLoading();
+              console.log(res)
+            })
+          }, ({
+            msg
+          }) => {
+              wx.hideLoading();
+              bleUtils.lanya0();
+              wx.showModal({
+                title: '',
+                content: '' + msg,
+              })
+            });
+        } else if(res.data.code==12){
+          wx.showModal({
+            title: '',
+            content: '未上锁！',
+          })
         } else {
           wx.showModal({
             title: '',
             content: res.data.message,
           })
         }
-        wx.hideLoading();
+        // wx.hideLoading();
 
       })
   })
@@ -574,6 +701,11 @@ if(bikeState==1){
               url: `../confirm2Trip/confirm2Trip?bikeCode=${bikeCode}&rentPrice=${rentPrice}&deposite=${deposite}&startPlace=${startPlace}&startTime=${startTime}&endTime=${endTime}&lastPrice=${lastPrice}&insurancePrice=${insurancePrice}`
             })
 
+          } else if (res.data.code == 12) {
+            wx.showModal({
+              title: '',
+              content: '未上锁！',
+            })
           } else {
             wx.showModal({
               title: '',
@@ -701,8 +833,7 @@ if(bikeState==1){
   // },
 
   onShow: function() {
-
-
+ 
     let token = wx.getStorageSync("token");
     let that = this;
     //强制用户授权， 获取当前位置
@@ -767,7 +898,6 @@ if(bikeState==1){
                   currentPay: data.rentMoney,
                   controls: that.data.ridingControls,
                   markers: [] // 进入行程，消除地图上的单车标记
-
                 })
                 that.getCurrentTime(startTime, unitMin, unitPrice)
                 wx.setNavigationBarTitle({
@@ -847,9 +977,6 @@ if(bikeState==1){
     });
   },
 
-
-
-
   // 强制用户开启定位权限
   getLocationAuth(callback) {
     const that = this;
@@ -888,8 +1015,6 @@ if(bikeState==1){
     let param = decodeURIComponent(options.q),
       qrCode = param.split("=")[1],
       token = wx.getStorageSync("token");
-
-    
 
     if (qrCode && token) {
       common.getLocation(res => {

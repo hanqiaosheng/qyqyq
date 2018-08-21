@@ -59,20 +59,6 @@
     </navigator>
   </view>
   <view class='horizontal-list mt-16'>
-
-    <view class='horizontal-list-item-wrapper '>
-      <view class='horizontal-list-item '>
-        <view class='left'>
-          <image src='../image/home_icon_kefu_k.png'></image>
-          <text>联系客服</text>
-        </view>
-        <view class='right' bindtap='phoneCall'>
-          <text class='phone-call'>{{telPhone}}</text>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class='horizontal-list mt-16'>
     <navigator url='../handbook/handbook' class='horizontal-list-item-wrapper '>
       <view class='horizontal-list-item '>
         <view class='left'>
@@ -87,4 +73,20 @@
     </navigator>
 
   </view>
+
+  <view class='horizontal-list mt-16'>
+
+    <view class='horizontal-list-item-wrapper '>
+      <view class='horizontal-list-item '>
+        <view class='left'>
+          <image src='../image/home_icon_kefu_k.png'></image>
+          <text>我的客服</text>
+        </view>
+        <view class='right' bindtap='phoneCall'>
+          <text class='phone-call'>{{telPhone}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
 </view>

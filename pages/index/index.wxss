@@ -122,6 +122,19 @@
     top: 20px;
      transform: translate(-50%,-50%);
      display: flex;
-     justify-content: space-around;
      align-items: center
+}
+.marquee_text{
+      position: absolute;
+    left: 30px;
+height: 100rpx;
+white-space: nowrap;
+line-height: 100rpx;
+color: #fff;
+animation:myfirst 20s linear infinite;
+}
+@keyframes myfirst
+{
+  0% {transform: translateX(40px); }
+  100% {transform: translateX(-100%);}
 }

@@ -57,13 +57,13 @@ function wxLogin(callback) {
           console.log(code)
           if (code == 0) {
             console.log('xxxxx')
-            wx.redirectTo({
+            wx.reLaunch({
               url: '../login/login',
             })
             return;
           } else if (code == 2) {
             wx.setStorageSync('token', res.data.data.token);
-            wx.redirectTo({
+            wx.reLaunch({
               url: '../realName/realName',
             })
           }else {

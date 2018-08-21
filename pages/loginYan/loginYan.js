@@ -340,7 +340,7 @@ Page({
             console.log(response)
             if (response.data.code == 1) {
               wx.setStorageSync('token', response.data.data.token);
-              wx.redirectTo({
+              wx.reLaunch({
                 url: '../realName/realName',
               })
               // wx.login({

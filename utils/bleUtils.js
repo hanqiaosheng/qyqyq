@@ -42,7 +42,7 @@ let bleUtils = {
     this.checkBle()
   },
   checkBle() {
-    const that = this;
+    let that = this;
     wx.openBluetoothAdapter({
       success: function(res) {
         if (that.type == 1 || that.bleList.length != 0) {
@@ -110,7 +110,7 @@ let bleUtils = {
     })
   },
   discovery() {
-    const that = this;
+    let that = this;
     console.log('discovery开始-------')
     wx.startBluetoothDevicesDiscovery({
 
@@ -123,7 +123,7 @@ let bleUtils = {
         // that.lanya4()
         setTimeout(function() {
           that.getlockDevices()
-        }, 3000)
+        }, 6000)
       },
       fail(res) {
         console.log('lanya3---dd', JSON.stringify(res))
@@ -133,24 +133,23 @@ let bleUtils = {
   },
   //获取锁
   getlockDevices() {
-    const that = this;
+    let that = this;
     wx.getBluetoothDevices({
       success: function(res) {
         console.log('lanya3---cc', JSON.stringify(res))
-        const devices = res.devices;
+        let devices = res.devices;
         if (devices.length == 0) {
           console.log('没有搜索到蓝牙设备，')
         }
         //app.globalData.searchBleList = devices
-        const macAdd = that.mac.replace(/:/g, "").toUpperCase();
+       let macAdd = that.mac.replace(/:/g, "").toUpperCase();
         console.log("macAdd..............", macAdd)
         let bleMarker, bleLock; //待匹配的信标、锁;
         for (let i = 0; i < devices.length; i++) {
           //  if (devices[i].name == 'BL-2A' || devices[i].name == 'coolqi' || devices[i].name == 'CoolQi' || devices[i].name == 'Beacon')
-          if (devices[i].name == 'lianLv' || devices[i].name == 'Letu_N_O' || devices[i].name == 'CoolQi') {
+          if (devices[i].name == 'Letu' || devices[i].name == 'Letu_N_O' || devices[i].name == 'Letu_O' ||  devices[i].name == 'CoolQi') {
             let deviceMac = ab2hex(devices[i].advertisData).substring(4, 16).toUpperCase()
             console.log("deviceMac000000000", deviceMac)
-
 
             if (deviceMac == macAdd) {
               that.ajaxParam.electricity = `${parseInt(ab2hex(devices[i].advertisData).substring(18, 20), 16)}%`;
@@ -159,7 +158,7 @@ let bleUtils = {
               console.log("成功匹配到设备",bleLock)
             }
 
-          } else if (devices[i].name == 'BTBEACON') {
+          } else if (devices[i].name == 'BTBEACON' || devices[i].name == 'Letu beacon') {
             bleMarker = ab2hex(devices[i].advertisData).substring(4);
             console.log("BTBEACON000000000", bleMarker)
           }

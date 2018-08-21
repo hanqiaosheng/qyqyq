@@ -18,14 +18,14 @@ App({
    // ybdcUrl: "http://ybdc.tunnel.qydev.com/ybb-mobile",
    // ybdcUrl: "http://106.14.113.199:20402/ybb-mobile",//  请求URL
    // ybdcUrl: "https://testapi.1bgx.com",//  请求URL
-ybdcUrl: "https://test-wechat.letulife.com",//  请求URL
+   ybdcUrl: "https://test-wechat.letulife.com",//  请求URL
   // ybdcUrl: "https://wechat.letulife.com",//  请求UR\L
     ybUrl:'https://qy.1bgx.com',
    // ybdcUrl:'http://192.168.0.187:8083',   
     // amapKey:'23a779506a97a19ab8261d922e076049',
     mapKey:'X4JBZ-5BMW2-MSWU3 - CCDQZ - CKIMV - JVFKU',
    // ybdcUrl: "https://v2.api.bicycle.windward.com.cn",
-    //请求头，测试服务器暂时没有验证
+    //请求头，测试服务器暂时没有验证https://wechat.letulife.com/html/watchbike.html?bike=
    
 
     header:{

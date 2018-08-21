@@ -52,7 +52,7 @@ Page({
             wx.removeStorageSync('couponSchemeId')
             wx.removeStorageSync('couponState')
               if(res.confirm){
-                wx.navigateTo({
+                wx.reLaunch({
                   url: '/pages/index/index',
                 })
               }
@@ -64,7 +64,7 @@ Page({
           content: res.data.message,
           success: function (res) {
             if (res.confirm) {
-              wx.navigateTo({
+              wx.redirectTo({
                 url: '/pages/index/index',
               })
             }
